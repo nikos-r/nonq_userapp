@@ -3,8 +3,8 @@ Ext.define('nonq_userapp.view.MenuScreen', {
 	xtype: 'menuscreen',
 	config:{
     	direction: 'horizontal',
-		defaultActive: 'drawer',
-	    openDrawerLength: 0.1,
+//		defaultActive: 'drawer',
+//	    openDrawerLength: 0.1,
 		backgroundItem:{
 	        html : 'menu',
 	        style: 'background-color: red'

@@ -4,7 +4,7 @@ Ext.define('nonq_userapp.ux.Drawer', {
   config:{
 	backgroundItem: null,
 	drawerItem: null,
-	defaultActive: null,
+	defaultActive: 'background',
 	backgroundItemLength: null,
 	openDrawerLength: 0,
 	parentContainerItemId: null,
@@ -32,11 +32,28 @@ console.log(this.getDirection());
 	
 	this.setItemLength(itemLength);    
 
-	
-	this.setItems([this.getBackgroundItem(), this.getDrawerItem()]);
-	if(this.getDefaultActive()==='drawer'){
-	  this.setActiveItem(1);
+	var drawerIndex;
+	var backgroundIndex;
+	if(this.getDirection()==='horizontal'){
+		//drawer is on the left
+		this.setItems([this.getDrawerItem(), this.getBackgroundItem()]);
+		drawerIndex = 0;
+		backgroundIndex = 1;
 	}
+	if(this.getDirection()==='vertical'){
+		//drawer is on the bottom
+		this.setItems([this.getBackgroundItem(), this.getDrawerItem()]);
+		drawerIndex = 1;
+		backgroundIndex = 0;
+	}
+	
+	if(this.getDefaultActive()==='drawer'){
+	  this.setActiveItem(drawerIndex);
+	}
+	if(this.getDefaultActive()==='background'){
+		this.setActiveItem(backgroundIndex);
+	}
+	
 	
 	
 	

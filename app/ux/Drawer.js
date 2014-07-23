@@ -1,13 +1,14 @@
-Ext.define('MyApp.ux.CarouselDrawer', {
+Ext.define('nonq_userapp.ux.Drawer', {
   extend: 'Ext.Carousel',
-  xtype: 'carouseldrawer',
+  xtype: 'drawer',
   config:{
 	backgroundItem: null,
 	drawerItem: null,
 	defaultActive: null,
 	backgroundItemLength: null,
 	openDrawerLength: 0,
-	parentContainerItemId: null
+	parentContainerItemId: null,
+	indicator: false
   },
   beforeInitConfig: function(){
 	  this.callParent(arguments);  

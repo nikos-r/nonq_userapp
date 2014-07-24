@@ -3,11 +3,9 @@ Ext.define('nonq_userapp.ux.Drawer', {
   xtype: 'drawer',
   config:{
 	backgroundItem: null,
-	drawerItem: null,
-	defaultActive: 'background',
-	backgroundItemLength: null,
-	openDrawerLength: 0,
-	parentContainerItemId: null,
+	drawerItem: null, //drawer is the item that is either fully open or fully closed.
+	drawerOpen: false,
+	openDrawerLength: 1, // float from 0 -> 1
 	indicator: false
   },
   beforeInitConfig: function(){
@@ -19,18 +17,18 @@ Ext.define('nonq_userapp.ux.Drawer', {
     this.callParent(arguments);
     
 console.log(this.getDirection());
-	var itemLength;
-
+	var drawerLength;
+	
 	if(this.getDirection()==='horizontal'){
-		itemLength = (1-this.getOpenDrawerLength()) * Ext.Viewport.getWindowWidth();
-		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowWidth() + ' '+ itemLength);
+		drawerLength = this.getOpenDrawerLength() * Ext.Viewport.getWindowWidth();
+		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowWidth() + ' '+ drawerLength);
 	}
 	if(this.getDirection()==='vertical'){
-		itemLength = (1-this.getOpenDrawerLength()) * Ext.Viewport.getWindowHeight();
-		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowHeight() + ' '+ itemLength);
+		drawerLength = this.getOpenDrawerLength() * Ext.Viewport.getWindowHeight();
+		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowHeight() + ' '+ drawerLength);
 	}
 	
-	this.setItemLength(itemLength);    
+	this.setItemLength(drawerLength);    
 
 	var drawerIndex;
 	var backgroundIndex;
@@ -41,16 +39,16 @@ console.log(this.getDirection());
 		backgroundIndex = 1;
 	}
 	if(this.getDirection()==='vertical'){
-		//drawer is on the bottom
-		this.setItems([this.getBackgroundItem(), this.getDrawerItem()]);
-		drawerIndex = 1;
-		backgroundIndex = 0;
+		//drawer is on the top
+		this.setItems([this.getDrawerItem(), this.getBackgroundItem()]);
+		drawerIndex = 0;
+		backgroundIndex = 1;
 	}
 	
-	if(this.getDefaultActive()==='drawer'){
-	  this.setActiveItem(drawerIndex);
+	if(this.getDrawerOpen()){
+		this.setActiveItem(drawerIndex);
 	}
-	if(this.getDefaultActive()==='background'){
+	else{
 		this.setActiveItem(backgroundIndex);
 	}
 	

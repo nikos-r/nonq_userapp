@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'MenuScreen'
+        'Test'
     ],
 
     icon: {
@@ -44,7 +44,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.MenuScreen'));
+        Ext.Viewport.add(Ext.create('nonq_userapp.view.Test'));
     },
 
     onUpdated: function() {

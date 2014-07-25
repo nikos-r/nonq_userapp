@@ -3,9 +3,9 @@ Ext.define('nonq_userapp.view.Test', {
 	requires: ['nonq_userapp.view.MenuScreen'],
 	xtype: 'testview',
 	config:{
-		layout:{
-        	type:'hbox'
-		},
+		layout: 'hbox',
+//        	type:'hbox'
+//		},
 		items:[
 		       {
 	    		xtype:'container',

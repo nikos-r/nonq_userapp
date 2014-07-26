@@ -1,51 +1,70 @@
 Ext.define('nonq_userapp.view.Footer', {
 	extend: 'Ext.Container',
+	requires: ['nonq_userapp.view.Back'],
 	xtype: 'footerview',
 	config:{
-		layout: 'hbox',
-		items:[
-			{
-				xtype:'container',
-				layout: 'vbox',
-				flex: 2,
+	    layout: 'vbox',
+	    items:[
+		    {
+		    	xtype: 'container',
+		    	flex: 4,
+				layout: 'hbox',
 				items:[
 					{
 						xtype:'container',
-						style: 'background-color: white;',
-						flex: 1	
+						flex: 1,
+						layout: 'vbox',
+						cls: 'footer2ColorBackground',
+						items:[
+							{
+							  xtype: 'container',
+							  flex : 5
+							},
+							{
+							  xtype: 'backview',
+							  flex : 1
+							}
+						]
 					},
 					{
 						xtype:'container',
-						style: 'background-color: #5e8c82;',
-						flex: 1	
-					}
-				]
-			},
-			{
-				xtype:'container',
-				layout: 'vbox',
-				flex: 1,
-//				html: 'middle',
-//				style: 'background-color: #5e8c82;'	
-				html: '<img src="resources/icons/footerbutton.png" style="max-height: 100%; max-width: 100%;"/>'
-			},
-			{
-				xtype:'container',
-				layout: 'vbox',
-				flex: 2,
-				items:[
-					{
-						style: 'background-color: white;',
-						xtype: 'container',
-						flex: 1
+						flex: 1,
+						cls: 'mainButtonBackground',
+						html: '<img src="resources/icons/main_button.png" style="display: block; margin-left: auto; margin-right: auto; max-height: 100%; max-width: 100%;"/>'
 					},
 					{
-						style: 'background-color: #5e8c82;',
-						xtype: 'container',
-						flex: 1
-					}
+						xtype:'container',
+						flex: 1,
+						cls: 'footer2ColorBackground'	
+					},
 				]
-			},
-		]
+	
+		    },
+		    {
+		      xtype: 'container',
+		      flex: 1,
+		      layout: 'hbox',
+		      items:[
+					{
+						xtype:'container',
+						flex: 1,
+						cls: 'backgroundGrey'
+					},
+					{
+						xtype:'container',
+						flex: 1,
+						cls: 'backgroundGreen'
+					},
+					{
+						xtype:'container',
+						flex: 1,
+						cls: 'backgroundGrey'	
+					},
+				]
+		    }
+		    
+	    
+	    
+	    ]
 	}
 });

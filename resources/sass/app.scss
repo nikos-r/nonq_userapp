@@ -1,3 +1,5 @@
+$page-bg-color:  white;
+
 // The following two lines import the default Sencha Touch theme. If you are building
 // a new theme, remove them and the add your own CSS on top of the base CSS (which
 // is already included in your app.json file).
@@ -6,6 +8,20 @@
 
 // Custom code goes here..
 
+
+$grey: #646363;
+$green: #5e8c82;
+
+.headerInfo {
+	background-image: url("../icons/headerinfo_background.png");
+	background-repeat: repeat-y;
+	background-size: contain;
+}
+
+.headerInfoText {
+	color: $grey;
+	text-align: center;
+}
 
 .footer2ColorBackground {
 	background-image: url("../icons/footer_background.png");
@@ -20,11 +36,11 @@
 }
 
 .backgroundGreen {
-	background-color: #5e8c82;
+	background-color: $green;
 }
 
 .backgroundGrey {
-	background-color: #646363;
+	background-color: $grey;
 }
 
 // Examples of using the icon mixin:

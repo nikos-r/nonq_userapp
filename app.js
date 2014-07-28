@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'HeaderInfo'
+        'Header'
     ],
 
     icon: {
@@ -44,7 +44,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.HeaderInfo'));
+        Ext.Viewport.add(Ext.create('nonq_userapp.view.Header'));
     },
 
     onUpdated: function() {

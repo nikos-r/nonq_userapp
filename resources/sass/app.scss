@@ -12,6 +12,15 @@ $page-bg-color:  white;
 $grey: #646363;
 $green: #5e8c82;
 
+
+.menuButton {
+	background-image: url("../icons/menubutton.png");
+	background-repeat: no-repeat;
+	background-size: 2em;
+	margin-top: 0.2em;
+	margin-left: 0.2em;
+}
+
 .headerInfo {
 	background-image: url("../icons/headerinfo_background.png");
 	background-repeat: repeat-y;
@@ -22,6 +31,15 @@ $green: #5e8c82;
 	color: $grey;
 	text-align: center;
 }
+
+.headerTitle{
+	font-size: 1em;
+}
+
+.headerDetails{
+	font-size: 0.8em;
+}
+
 
 .footer2ColorBackground {
 	background-image: url("../icons/footer_background.png");

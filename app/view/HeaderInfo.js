@@ -10,14 +10,19 @@ Ext.define('nonq_userapp.view.HeaderInfo',{
 	  items:[
          {
         	 xtype:'container',
-        	 cls: 'headerInfoText',
+        	 cls: [ 
+    	        'headerInfoText',
+    	        'headerTitle'
+        	 ],
         	 html: 'ΤΡΑΠΕΖΑ ΠΕΙΡΑΙΩΣ'
-//        	 style: 'font-size: '
-        
+        		 
          },
          {
         	 xtype:'container',
-        	 cls: 'headerInfoText',
+        	 cls: [
+    	       'headerInfoText',
+    	       'headerDetails'
+        	 ],
 	         html: 'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ<br/>15234, 210 6850440'	         
          }
 	  ]

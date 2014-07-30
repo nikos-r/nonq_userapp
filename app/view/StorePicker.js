@@ -9,6 +9,7 @@ Ext.define('nonq_userapp.view.StorePicker',{
 		cls: 'storePicker',
 		doneButton: false,
 		cancelButton: false,
+		itemId: 'storePickerItemId',
 		slots:[
 			{
 		       name: 'store',
@@ -24,30 +25,52 @@ Ext.define('nonq_userapp.view.StorePicker',{
 			       },
 			       {
 			    	   text:'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ',
-			    	   value: 1			    	   
+			    	   value: 3			    	   
 			       },
 			       {
 			    	   text:'ΜΙΧΑΛΑΚΟΠΟΥΛΟΥ 31-33, ΑΘΗΝΑ',
-			    	   value: 1			    	   
+			    	   value: 4			    	   
 			       },
 			       {
 			    	   text:'ΠΑΝΕΠΙΣΤΗΜΙΟΥ 31, ΑΘΗΝΑ',
-			    	   value: 1			    	   
+			    	   value: 5			    	   
 			       },
 			       {
 			    	   text:'ΗΡΟΔΟΤΟΥ 24, ΚΟΛΩΝΑΚΙ',
-			    	   value: 2			    	   
+			    	   value: 6			    	   
 			       },
 			       {
 			    	   text:'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ',
-			    	   value: 1			    	   
+			    	   value: 7			    	   
 			       },
 			       {
 			    	   text:'ΜΙΧΑΛΑΚΟΠΟΥΛΟΥ 31-33, ΑΘΗΝΑ',
-			    	   value: 1			    	   
+			    	   value: 8			    	   
 			       }
 		       ]
 			}	       
 		]
+//		,
+//		listeners: [{
+//		    delegate: '#storePickerItemId',
+//		    event: 'tap',
+//		    fn: 'onTap'
+//		}]
+	},
+
+
+	initialize: function() {
+		this.callParent();
+		this.element.on({ 
+	    	scope: this,
+	        tap: 'onTap'
+	    });
+	},
+	onTap: function(){
+		
+	  console.log('button tapped inside list ');
+	  console.log(this);
+	  console.log(this.getActiveItem());
+//	  this.getActiveItem().setCls('testCls');
 	}
 });

@@ -11,7 +11,7 @@ $page-bg-color:  white;
 
 $grey: #646363;
 $green: #5e8c82;
-
+$lightgrey: #e1e1e1;
 
 .menuButton {
 	background-image: url("../icons/menubutton.png");
@@ -78,6 +78,21 @@ $green: #5e8c82;
 	background: none;
 	background-image: none;
 	border-color: $grey;
+	height: 1.5em;
+}
+
+.storePicker .x-picker-slot .x-dataview-item{
+	line-height: 1.5em;
+	height: 1.5em;
+	color: $lightgrey
+}
+
+.storePicker  .x-picker-slot .x-dataview-item.x-item-selected{
+	color: $green !important;
+}
+
+.testCls{
+	color: red !important;
 }
 ////
 

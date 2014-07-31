@@ -258,6 +258,7 @@ Ext.define('Ext.picker.Slot', {
 
         scroller.on({
             scope: this,
+            delay: 0,
             scrollend: 'onScrollEnd'
         });
     },
@@ -320,6 +321,8 @@ Ext.define('Ext.picker.Slot', {
 
     // @private
     doItemTap: function(list, index, item, e) {
+    	console.log("Slot doItemTap");
+    	
         var me = this;
         me.selectedIndex = index;
         me.selectedNode = item;
@@ -346,7 +349,20 @@ Ext.define('Ext.picker.Slot', {
     },
 
     // @private
-    onTouchEnd: function() {
+    onTouchEnd: function(e, x, y) {
+    	console.log('slot: on touch end ' + y);
+    	
+    	 var me = this,
+//         index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
+//         viewItems = me.getViewItems(),
+//         item = viewItems[index];
+         store = me.getStore(),
+//         record = store && store.getAt(index),
+         previousIndex = me.selectedIndex,
+         previousRecord= store.getAt(previousIndex);
+
+     console.log('slot: finish on touch end. from ' + previousIndex );
+    	
         this.element.removeCls(Ext.baseCSSPrefix + 'scrolling');
     },
 
@@ -356,11 +372,23 @@ Ext.define('Ext.picker.Slot', {
             index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
             viewItems = me.getViewItems(),
             item = viewItems[index];
+//            store = me.getStore(),
+//            record = store && store.getAt(index),
+//            previousIndex = me.selectedIndex,
+//            previousRecord= store.getAt(previousIndex);
 
+        console.log('slot: on scroll end');
+            
+            
         if (item) {
             me.selectedIndex = index;
             me.selectedNode = item;
 
+//			if(previousIndex!=index){
+//				console.log('is this late?');
+////			    me.doItemSelect(me, record);
+////			    me.doItemDeselect(me, previousRecord);
+//			  }
             me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
         }
     },

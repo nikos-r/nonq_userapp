@@ -258,9 +258,19 @@ Ext.define('Ext.picker.Slot', {
 
         scroller.on({
             scope: this,
-            delay: 0,
+//            delay: 0,
             scrollend: 'onScrollEnd'
         });
+        
+//        scroller.onAfter({
+//            scope: this,
+//            scrollend: 'onScrollEndAfter'
+//        });
+//        
+//        scroller.onBefore({
+//            scope: this,
+//            scrollend: 'onScrollEndBefore'
+//        });
     },
 
     // @private
@@ -300,7 +310,7 @@ Ext.define('Ext.picker.Slot', {
             titleHeight = 0,
             barHeight, padding;
 
-        barHeight = bar.dom.getBoundingClientRect().height;
+        barHeight = Math.round(bar.dom.getBoundingClientRect().height);
 
         if (showTitle && title) {
             titleHeight = title.element.getHeight();
@@ -316,6 +326,7 @@ Ext.define('Ext.picker.Slot', {
 
         scroller.refresh();
         scroller.setSlotSnapSize(barHeight);
+        console.log("Slot: setupBar " + barHeight);
         this.setValue(value);
     },
 
@@ -356,15 +367,38 @@ Ext.define('Ext.picker.Slot', {
 //         index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
 //         viewItems = me.getViewItems(),
 //         item = viewItems[index];
-         store = me.getStore(),
+         store = me.getStore(),	
 //         record = store && store.getAt(index),
          previousIndex = me.selectedIndex,
          previousRecord= store.getAt(previousIndex);
 
-     console.log('slot: finish on touch end. from ' + previousIndex );
+     console.log('slot: finish on touch end. from ' + previousIndex + " to " + me.getValue());
     	
         this.element.removeCls(Ext.baseCSSPrefix + 'scrolling');
     },
+
+
+//    onScrollEndBefore: function(scroller, x, y) {
+//        var me = this,
+//            index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
+//            viewItems = me.getViewItems(),
+//            item = viewItems[index];
+//   
+//
+//        console.log('slot: on scroll end Before');
+//    },
+//
+//
+//
+//    onScrollEndAfter: function(scroller, x, y) {
+//        var me = this,
+//            index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
+//            viewItems = me.getViewItems(),
+//            item = viewItems[index];
+//
+//        console.log('slot: on scroll end After');
+//    },
+        
 
     // @private
     onScrollEnd: function(scroller, x, y) {
@@ -372,10 +406,10 @@ Ext.define('Ext.picker.Slot', {
             index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
             viewItems = me.getViewItems(),
             item = viewItems[index];
-//            store = me.getStore(),
-//            record = store && store.getAt(index),
-//            previousIndex = me.selectedIndex,
-//            previousRecord= store.getAt(previousIndex);
+            store = me.getStore(),
+            record = store && store.getAt(index),
+            previousIndex = me.selectedIndex,
+            previousRecord= store.getAt(previousIndex);
 
         console.log('slot: on scroll end');
             
@@ -384,15 +418,36 @@ Ext.define('Ext.picker.Slot', {
             me.selectedIndex = index;
             me.selectedNode = item;
 
-//			if(previousIndex!=index){
-//				console.log('is this late?');
-////			    me.doItemSelect(me, record);
-////			    me.doItemDeselect(me, previousRecord);
-//			  }
+			if(previousIndex!=index){
+				console.log('scroll change');
+			    me.doItemSelect(me, record);
+			    me.doItemDeselect(me, previousRecord);
+			  }
             me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
         }
     },
 
+    	
+	doItemDeselect: function() {
+	this.callParent(arguments);
+	console.log('Slot: doItemDeselect override');
+        var me = this;
+        var item = me.getItemAt(me.getStore().getAt(me.selectedIndex));
+
+        if (Ext.isElement(item)) {
+            item = Ext.get(item);
+        }
+
+        if (item) {
+            if (item.isComponent) {
+                item.renderElement.removeCls([me.getPressedCls(), me.getSelectedCls()]);
+            } else {
+                item.removeCls([me.getPressedCls(), me.getSelectedCls()]);
+            }
+        }
+    },
+	
+	
     /**
      * Returns the value of this slot
      * @private

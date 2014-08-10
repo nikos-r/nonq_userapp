@@ -689,7 +689,7 @@ Ext.define('Ext.dataview.DataView', {
 
     // invoked by the selection model to maintain visual UI cues
     onItemSelect: function(record, suppressEvent) {
-    	console.log('DataView onItemSelect');
+    	console.log('DataView onItemSelect ' + suppressEvent);
     	
         var me = this;
         if (suppressEvent) {
@@ -733,6 +733,7 @@ Ext.define('Ext.dataview.DataView', {
     },
 
     doItemDeselect: function(me, record) {
+	console.log('DataView: doItemDeselect');
         var item = me.getItemAt(me.getStore().indexOf(record));
 
         if (Ext.isElement(item)) {

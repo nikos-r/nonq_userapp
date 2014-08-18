@@ -371,34 +371,13 @@ Ext.define('Ext.picker.Slot', {
             me.selectedNode = item;
 
 			if(previousIndex!=index){
-				console.log('scroll change');
-			    me.doItemSelect(me, record);
-			    me.doItemDeselect(me, previousRecord);
+				// proper way of performing selection
+				me.selectWithEvent(record);
 		    }
             me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
         }
     },
 
-    	
-//	doItemDeselect: function() {
-//	this.callParent(arguments);
-//	console.log('Slot: doItemDeselect override');
-//        var me = this;
-//        var item = me.getItemAt(me.getStore().getAt(me.selectedIndex));
-//
-//        if (Ext.isElement(item)) {
-//            item = Ext.get(item);
-//        }
-//
-//        if (item) {
-//            if (item.isComponent) {
-//                item.renderElement.removeCls([me.getPressedCls(), me.getSelectedCls()]);
-//            } else {
-//                item.removeCls([me.getPressedCls(), me.getSelectedCls()]);
-//            }
-//        }
-//    },
-	
 	
     /**
      * Returns the value of this slot

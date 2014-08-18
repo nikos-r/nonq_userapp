@@ -320,8 +320,6 @@ Ext.define('Ext.picker.Slot', {
 
     // @private
     doItemTap: function(list, index, item, e) {
-    	console.log("Slot doItemTap");
-    	
         var me = this;
         me.selectedIndex = index;
         me.selectedNode = item;
@@ -357,24 +355,18 @@ Ext.define('Ext.picker.Slot', {
         var me = this,
             index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
             viewItems = me.getViewItems(),
-            item = viewItems[index];
+            item = viewItems[index],
             store = me.getStore(),
-            record = store && store.getAt(index),
-            previousIndex = me.selectedIndex,
-            previousRecord= store.getAt(previousIndex);
+            record = store && store.getAt(index);
 
-        console.log('slot: on scroll end');
-            
-            
         if (item) {
             me.selectedIndex = index;
             me.selectedNode = item;
 
-			if(previousIndex!=index){
-				// proper way of performing selection
-				me.selectWithEvent(record);
-		    }
-            me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
+            // proper way of performing selection
+			me.selectWithEvent(record);
+
+			me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
         }
     },
 

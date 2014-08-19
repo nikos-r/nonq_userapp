@@ -259,7 +259,7 @@ Ext.define('Ext.picker.Slot', {
         scroller.on({
             scope: this,
             scrollend: 'onScrollEnd'
-        });
+        });        
     },
 
     // @private
@@ -299,7 +299,7 @@ Ext.define('Ext.picker.Slot', {
             titleHeight = 0,
             barHeight, padding;
 
-        barHeight = bar.dom.getBoundingClientRect().height;
+        barHeight = Math.round(bar.dom.getBoundingClientRect().height);
 
         if (showTitle && title) {
             titleHeight = title.element.getHeight();
@@ -355,16 +355,22 @@ Ext.define('Ext.picker.Slot', {
         var me = this,
             index = Math.round(y / me.picker.bar.dom.getBoundingClientRect().height),
             viewItems = me.getViewItems(),
-            item = viewItems[index];
+            item = viewItems[index],
+            store = me.getStore(),
+            record = store && store.getAt(index);
 
         if (item) {
             me.selectedIndex = index;
             me.selectedNode = item;
 
-            me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
+            // proper way of performing selection
+			me.selectWithEvent(record);
+
+			me.fireEvent('slotpick', me, me.getValue(), me.selectedNode);
         }
     },
 
+	
     /**
      * Returns the value of this slot
      * @private

@@ -84,7 +84,9 @@ $lightgrey: #e1e1e1;
 .storePicker .x-picker-slot .x-dataview-item{
 	line-height: 1.5em;
 	height: 1.5em;
-	color: $lightgrey
+	color: $lightgrey;
+	font-weight: normal;
+	text-align: center;
 }
 
 .storePicker  .x-picker-slot .x-dataview-item.x-item-selected{

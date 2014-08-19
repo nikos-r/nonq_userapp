@@ -1,28 +1,23 @@
 Ext.define('nonq_userapp.view.Test', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.MenuScreen'],
+	requires: ['nonq_userapp.view.Header','nonq_userapp.view.Footer','nonq_userapp.view.StorePicker'],
 	xtype: 'testview',
 	config:{
-		layout: 'hbox',
-//        	type:'hbox'
-//		},
+		layout: 'vbox',
 		items:[
 		       {
-	    		xtype:'container',
-	    		html: 'left',
-	    		style: 'background-color: grey;',
+	    		xtype:'headerview',
 	    		flex:1
 		       },
 		       {
-	    		xtype:'menuscreen',
-	    		html: 'bottom',
-	    		style: 'background-color: white;',
-	    		drawerClosedCallback: 
-	    			function(){
-		    	   		console.log('drawer closed callback');
-		       		},		     
-	    		flex:3
-		       }		       
+	    		xtype:'storepickerview',
+	    		flex:2
+		       }
+//,
+//		       {
+//	    		xtype:'footerview',
+//	    		flex:1
+//		       }
 		]
 	}
 });

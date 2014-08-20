@@ -1,6 +1,6 @@
 Ext.define('nonq_userapp.view.Test', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.Header','nonq_userapp.view.Footer','nonq_userapp.view.StorePicker'],
+	requires: ['nonq_userapp.view.Header','nonq_userapp.view.Footer','nonq_userapp.view.StorePickerWrapper'],
 	xtype: 'testview',
 	config:{
 		layout: 'vbox',
@@ -10,14 +10,13 @@ Ext.define('nonq_userapp.view.Test', {
 	    		flex:1
 		       },
 		       {
-	    		xtype:'storepickerview',
-	    		flex:2
+	    		xtype:'storepickerwrapperview',
+	    		flex:3
+		       },
+		       {
+	    		xtype:'footerview',
+	    		flex:1
 		       }
-//,
-//		       {
-//	    		xtype:'footerview',
-//	    		flex:1
-//		       }
 		]
 	}
 });

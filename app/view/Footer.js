@@ -28,7 +28,7 @@ Ext.define('nonq_userapp.view.Footer', {
 					},
 					{
 						xtype:'container',
-						flex: 1,
+						flex: 2,
 						cls: 'mainButtonBackground',
 						html: '<img src="resources/icons/main_button.png" style="display: block; margin-left: auto; margin-right: auto; max-height: 100%; max-width: 100%;"/>'
 					},
@@ -52,7 +52,7 @@ Ext.define('nonq_userapp.view.Footer', {
 					},
 					{
 						xtype:'container',
-						flex: 1,
+						flex: 2,
 						cls: 'backgroundGreen'
 					},
 					{

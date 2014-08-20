@@ -625,7 +625,6 @@ Ext.define('Ext.scroll.Scroller', {
     },
 
     applySlotSnapSize: function(snapSize) {
-      console.log('Scroller: applySlotSnapSize ' + snapSize);
         if (typeof snapSize == 'number') {
             return {
                 x: snapSize,
@@ -976,8 +975,6 @@ Ext.define('Ext.scroll.Scroller', {
         easingX = this.getAnimationEasing('x', e);
         easingY = this.getAnimationEasing('y', e);
 
-            	 console.log('Scroller: onDragEnd '+ ' easingX: '+easingX + ' easingY:'+easingY);
-
         if (easingX || easingY) {
             this.getTranslatable().animate(easingX, easingY);
         }
@@ -1065,7 +1062,6 @@ Ext.define('Ext.scroll.Scroller', {
      * @private
      */
     onAnimationEnd: function() {
-    	 console.log('Scroller: onAnimationEnd');
         this.snapToBoundary();
         this.onScrollEnd();
     },

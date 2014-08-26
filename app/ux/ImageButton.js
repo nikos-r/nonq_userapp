@@ -1,6 +1,5 @@
 Ext.define('nonq_userapp.ux.ImageButton',{
-	extend: 'Ext.Container',
-	requires: ['Ext.Img'],
+	extend: 'Ext.Img',
 	xtype:'imagebutton',
 	config: {
 		disabledImageSrc: null,
@@ -8,34 +7,14 @@ Ext.define('nonq_userapp.ux.ImageButton',{
 		pressedImageSrc: null,
 		height: null,
 		width: null,
-		disabled: false,
-		imageItem: null,
-		layout: 'fit',
-		items:[
-	       {	
-			xtype:'image',
-			itemId: 'imageButtonItemId',
-			mode: 'element'
-	       }
-		]
+		disabled: false
 	},
 	initialize: function(){
 		this.callParent();
-		var imageItem = this.down('#imageButtonItemId');
-		this.imageItem = imageItem;
+		this.setSrcOverride();
 		
-		if(this.getDisabled()){
-			imageItem.setSrc(this.getDisabledImageSrc());
-		}
-		else{
-			imageItem.setSrc(this.getActiveImageSrc());
-		}
-		
-//		imageItem.setHeight(this.getHeight());
-//		imageItem.setWidth(this.getWidth());
-//		
-
-		
+		this.setHeight(this.getHeight());
+		this.setWidth(this.getWidth());
 		
 		this.element.on({ 
         	scope: this,
@@ -43,24 +22,55 @@ Ext.define('nonq_userapp.ux.ImageButton',{
             touchend   : 'onRelease'
         });
 	},
+	
+	setActiveImageSrc: function(newSrc){
+		this.activeImageSrc = newSrc;
+		this.setSrcOverride();
+	},
+
+	setDisabledImageSrc: function(newSrc){
+		this.disabledImageSrc = newSrc;
+		this.setSrcOverride();
+	},
+	
+	setDisabled: function(isDisabled){
+		this.disabled = isDisabled;
+		this.setSrcOverride();
+	},
+
+	//private method
+	setSrcOverride: function(){
+		if(this.getDisabled()){
+			this.setSrc(this.getDisabledImageSrc());
+		}
+		else{
+			this.setSrc(this.getActiveImageSrc());
+		}
+	},
+
+	getActiveImageSrc: function(){
+		return this.activeImageSrc;
+	},
+
+	getDisabledImageSrc: function(){
+		return this.disabledImageSrc;
+	},
+
+	getDisabled: function(){
+		return this.disabled;
+	},
+
 	onPress : function() {
-		console.log('pressed');
-		console.log(this.imageItem);
-		console.log('height :'+this.imageItem.getHeight());
-		console.log(+this);
-//		console.log('width :'+this.imageItem.getWidth())
 		if(this.getDisabled()){
 			return;
 		}
-		this.imageItem.setSrc(this.getPressedImageSrc());
+		this.setSrc(this.getPressedImageSrc());
 	},
 	onRelease : function(){
 		if(this.getDisabled()){
 			return;
 		}
-		this.imageItem.setSrc(this.getActiveImageSrc());
+		this.setSrc(this.getActiveImageSrc());
 	}
-	
-	
 });
 	

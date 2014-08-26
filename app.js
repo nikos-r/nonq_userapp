@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'Test'
+        'Main'
     ],
 
     icon: {
@@ -44,7 +44,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.Test'));
+        Ext.Viewport.add(Ext.create('nonq_userapp.view.Main'));
     },
 
     onUpdated: function() {

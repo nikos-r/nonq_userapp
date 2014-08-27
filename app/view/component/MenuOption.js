@@ -25,5 +25,6 @@ Ext.define('nonq_userapp.view.component.MenuOption',{
 		menuItem.setPressedImageSrc(this.getPressedImageSrc());
 		menuItem.setHeight(this.getImageSize());
 		menuItem.setWidth(this.getImageSize());
+		menuItem.setDisabled(this.getDisabled());
 	}
 });

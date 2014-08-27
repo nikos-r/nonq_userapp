@@ -1,29 +1,17 @@
 Ext.define('nonq_userapp.view.Test',{
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.MenuRow'],
+	requires: ['nonq_userapp.view.MenuRows'],
 	xtype:'testview',
 	config:{
-      	layout:'vbox',
-		scrollable: true,
+      	layout:{
+			type:'hbox',
+			pack:'center'
+		},
 		items:[
 			{
-				xtype:'menurowview',
-				height:'5em'
-			},
-			{
-				xtype:'menurowview',
-			height:'5em'
-			},
-			{
-				xtype:'menurowview',
-			height:'5em'
-			},
-			{
-				xtype:'menurowview',
-			height:'5em'
+				xtype:'menurowsview',
+				minWidth: '60%'
 			}
-			
-		
 		]		       
 	}
 

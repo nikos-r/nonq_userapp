@@ -1,6 +1,6 @@
 Ext.define('nonq_userapp.view.Footer', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.Back'],
+	requires: ['nonq_userapp.view.Back', 'Ext.Img'],
 	xtype: 'footerview',
 	config:{
 	    layout: 'vbox',
@@ -28,9 +28,16 @@ Ext.define('nonq_userapp.view.Footer', {
 					},
 					{
 						xtype:'container',
-						flex: 2,
 						cls: 'mainButtonBackground',
-						html: '<img src="resources/icons/main_button.png" style="display: block; margin-left: auto; margin-right: auto; max-height: 100%; max-width: 100%;"/>'
+						items:[
+							{
+								xtype:'image',
+								src: 'resources/icons/main_button.png',
+								height:'100%',
+								width:'100%'
+							}
+						],
+						flex:2	
 					},
 					{
 						xtype:'container',

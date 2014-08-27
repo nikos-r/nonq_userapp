@@ -8,11 +8,11 @@ Ext.define('nonq_userapp.view.Header', {
 			{
 				xtype:'container',
 				cls: 'menuButton',
-				flex:1
+				height:'2em'
 			},
 			{
 				xtype:'headerinfoview',
-				flex:1
+				height:'4em'
 			}
 			
 		]

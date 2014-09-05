@@ -12,6 +12,7 @@ $page-bg-color:  white;
 $grey: #646363;
 $green: #5e8c82;
 $lightgrey: #e1e1e1;
+$orange: #f8a924;
 
 .menuButton {
 	background-image: url("../icons/menubutton.png");
@@ -59,6 +60,26 @@ $lightgrey: #e1e1e1;
 
 .backgroundGrey {
 	background-color: $grey;
+}
+
+.backgroundOrange {
+	background-color: $orange; 
+}
+
+.backgroundDefault{
+	background-color: $page-bg-color;
+}
+
+.fontColorGreen {
+	color: $green
+}
+
+.fontColorOrange {
+	color: $orange
+}
+
+.fontColorWhite{
+	color: white;
 }
 
 ///// picker customization

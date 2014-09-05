@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'TestStorePickerScreen'
+        'TestTicketDetails'
     ],
 
     icon: {
@@ -44,7 +44,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.TestStorePickerScreen'));
+        Ext.Viewport.add(Ext.create('nonq_userapp.view.TestTicketDetails'));
     },
 
     onUpdated: function() {

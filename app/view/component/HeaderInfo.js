@@ -1,6 +1,6 @@
-Ext.define('nonq_userapp.view.HeaderInfo',{
+Ext.define('nonq_userapp.view.component.HeaderInfo',{
 	extend: 'Ext.Container',
-	xtype: 'headerinfoview',
+	xtype: 'headerinfocomponent',
 	config:{
 	  cls: 'headerInfo',
 	  layout:{
@@ -14,7 +14,7 @@ Ext.define('nonq_userapp.view.HeaderInfo',{
     	        'headerInfoText',
     	        'headerTitle'
         	 ],
-        	 html: 'ΤΡΑΠΕΖΑ ΠΕΙΡΑΙΩΣ'
+        	 html: 'Î¤Î¡Î‘Î Î•Î–Î‘ Î Î•Î™Î¡Î‘Î™Î©Î£'
         		 
          },
          {
@@ -23,7 +23,7 @@ Ext.define('nonq_userapp.view.HeaderInfo',{
     	       'headerInfoText',
     	       'headerDetails'
         	 ],
-	         html: 'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ<br/>15234, 210 6850440'	         
+	         html: 'Î‘Î˜Î—Î�Î‘Î£ 61, Î‘Î˜Î—Î�Î‘<br/>15234, 210 6850440'	         
          }
 	  ]
     }

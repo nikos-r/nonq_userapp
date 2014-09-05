@@ -1,6 +1,6 @@
-Ext.define('nonq_userapp.view.StorePicker',{
+Ext.define('nonq_userapp.view.component.StorePicker',{
 	extend: 'Ext.Picker',
-	xtype: 'storepickerview',
+	xtype: 'storepickercomponent',
 	config:{
 		toolbar:{
 			hidden: true
@@ -16,35 +16,35 @@ Ext.define('nonq_userapp.view.StorePicker',{
 		       title: 'Store',
 		       data:[
 			       {
-			    	   text:'ΠΑΝΕΠΙΣΤΗΜΙΟΥ 31, ΑΘΗΝΑ',
+			    	   text:'Î Î‘Î�Î•Î Î™Î£Î¤Î—ÎœÎ™ÎŸÎ¥ 31, Î‘Î˜Î—Î�Î‘',
 			    	   value: 1			    	   
 			       },
 			       {
-			    	   text:'ΗΡΟΔΟΤΟΥ 24, ΚΟΛΩΝΑΚΙ',
+			    	   text:'Î—Î¡ÎŸÎ”ÎŸÎ¤ÎŸÎ¥ 24, ÎšÎŸÎ›Î©Î�Î‘ÎšÎ™',
 			    	   value: 2			    	   
 			       },
 			       {
-			    	   text:'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ',
+			    	   text:'Î‘Î˜Î—Î�Î‘Î£ 61, Î‘Î˜Î—Î�Î‘',
 			    	   value: 3			    	   
 			       },
 			       {
-			    	   text:'ΜΙΧΑΛΑΚΟΠΟΥΛΟΥ 31-33, ΑΘΗΝΑ',
+			    	   text:'ÎœÎ™Î§Î‘Î›Î‘ÎšÎŸÎ ÎŸÎ¥Î›ÎŸÎ¥ 31-33, Î‘Î˜Î—Î�Î‘',
 			    	   value: 4			    	   
 			       },
 			       {
-			    	   text:'ΠΑΝΕΠΙΣΤΗΜΙΟΥ 31, ΑΘΗΝΑ',
+			    	   text:'Î Î‘Î�Î•Î Î™Î£Î¤Î—ÎœÎ™ÎŸÎ¥ 31, Î‘Î˜Î—Î�Î‘',
 			    	   value: 5			    	   
 			       },
 			       {
-			    	   text:'ΗΡΟΔΟΤΟΥ 24, ΚΟΛΩΝΑΚΙ',
+			    	   text:'Î—Î¡ÎŸÎ”ÎŸÎ¤ÎŸÎ¥ 24, ÎšÎŸÎ›Î©Î�Î‘ÎšÎ™',
 			    	   value: 6			    	   
 			       },
 			       {
-			    	   text:'ΑΘΗΝΑΣ 61, ΑΘΗΝΑ',
+			    	   text:'Î‘Î˜Î—Î�Î‘Î£ 61, Î‘Î˜Î—Î�Î‘',
 			    	   value: 7			    	   
 			       },
 			       {
-			    	   text:'ΜΙΧΑΛΑΚΟΠΟΥΛΟΥ 31-33, ΑΘΗΝΑ',
+			    	   text:'ÎœÎ™Î§Î‘Î›Î‘ÎšÎŸÎ ÎŸÎ¥Î›ÎŸÎ¥ 31-33, Î‘Î˜Î—Î�Î‘',
 			    	   value: 8			    	   
 			       }
 		       ]

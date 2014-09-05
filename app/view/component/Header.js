@@ -1,7 +1,7 @@
-Ext.define('nonq_userapp.view.Header', {
+Ext.define('nonq_userapp.view.component.Header', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.HeaderInfo'],
-	xtype: 'headerview',
+	requires: ['nonq_userapp.view.component.HeaderInfo'],
+	xtype: 'headercomponent',
 	config:{
 		layout: 'vbox',
 		items:[
@@ -11,7 +11,7 @@ Ext.define('nonq_userapp.view.Header', {
 				height:'2em'
 			},
 			{
-				xtype:'headerinfoview',
+				xtype:'headerinfocomponent',
 				height:'4em'
 			}
 			

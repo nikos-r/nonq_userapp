@@ -1,7 +1,7 @@
-Ext.define('nonq_userapp.view.Footer', {
+Ext.define('nonq_userapp.view.component.Footer', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.Back', 'Ext.Img'],
-	xtype: 'footerview',
+	requires: ['nonq_userapp.view.component.Back', 'Ext.Img'],
+	xtype: 'footercomponent',
 	config:{
 	    layout: 'vbox',
 	    items:[
@@ -21,7 +21,7 @@ Ext.define('nonq_userapp.view.Footer', {
 							  flex : 5
 							},
 							{
-							  xtype: 'backview',
+							  xtype: 'backcomponent',
 							  flex : 1
 							}
 						]

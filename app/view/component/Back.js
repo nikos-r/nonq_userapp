@@ -1,6 +1,6 @@
-Ext.define('nonq_userapp.view.Back', {
+Ext.define('nonq_userapp.view.component.Back', {
 	extend: 'Ext.Container',
-	xtype: 'backview',
+	xtype: 'backcomponent',
 	config:{
 	  items:[
 		  {

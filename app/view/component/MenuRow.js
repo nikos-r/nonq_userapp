@@ -1,7 +1,7 @@
-Ext.define('nonq_userapp.view.MenuRow',{
+Ext.define('nonq_userapp.view.component.MenuRow',{
 	extend: 'Ext.Container',
 	requires:['nonq_userapp.view.component.MenuOption'],
-	xtype: 'menurowview',
+	xtype: 'menurowcomponent',
 	config:{
 		layout: 'hbox',
 		items:[

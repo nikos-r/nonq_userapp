@@ -1,6 +1,6 @@
 Ext.define('nonq_userapp.view.Test',{
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.MenuRows'],
+	requires: ['nonq_userapp.view.component.MenuRows'],
 	xtype:'testview',
 	config:{
       	layout:{
@@ -9,7 +9,7 @@ Ext.define('nonq_userapp.view.Test',{
 		},
 		items:[
 			{
-				xtype:'menurowsview',
+				xtype:'menurowscomponent',
 				minWidth: '60%'
 			}
 		]		       

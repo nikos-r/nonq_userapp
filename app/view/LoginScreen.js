@@ -1,7 +1,7 @@
 Ext.define('nonq_userapp.view.LoginScreen',{
 	extend: 'Ext.Container',
 	xtype: 'loginscreen',
-	requires:['Ext.Img', 'Ext.form.FieldSet'],
+	requires:['Ext.Img', 'Ext.form.FieldSet', 'Ext.Button', 'Ext.util.DelayedTask'],
 	config:{
 	  cls: 'backgroundGreen',
 	  layout: 'vbox',
@@ -54,25 +54,28 @@ Ext.define('nonq_userapp.view.LoginScreen',{
 	        	        	]
 	        	        },
 	        	        {
-	        	        	html: 'ENTER',
-	        	        	cls:'loginScreenText centerAlign',
+	        	        	cls:'loginScreenText centerAlign textOnlyButton',
+	        	        	xtype: 'button',
 	        	        	itemId: 'enterButton',
-	        	      	    listeners:[
-	        	      	              {
-				     	            	 element: 'element',
-				     	            	 event: 'tap',
-				     	            	 fn: 'onEnterButtonTap'
-	        	      	              }
-	        	      	    
-	      	               ]
+	        	            text: 'ENTER'
 	        	        }
 	        	 ]
 	        		
 	         }
-	  ]
+	  ],
+	  listeners: [{
+	        delegate: '#enterButton',
+	        event: 'tap',
+	        fn: 'onEnterButtonTap'
+	  }],
     },
     onEnterButtonTap: function(){
-    	console.log('test');
+    	var me = this;
+    	var task = Ext.create('Ext.util.DelayedTask', function () {
+    	    me.fireEvent('signInCommand', me);
+    	});
+    	
+    	task.delay(10);
     }
 
     

@@ -18,9 +18,18 @@ Ext.application({
     ],
 
     views: [
-        'TestTicketDetails'
+        'LoginScreen',
+        'MenuScreen',
+        'MainView',
+        'TestStorePickerScreen',
+        'FooterView'
     ],
 
+    controllers:[
+         'LoginController'
+     ],
+
+    
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -44,7 +53,14 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.TestTicketDetails'));
+        Ext.Viewport.add([
+//                          {xtype:'loginscreen'},
+//                          {xtype:'menuscreen'}
+                          {xtype:'mainview'}
+//                          {xtype:'teststorepickerscreen'}
+//                        {xtype:'footerview'}
+                          ]);
+//        		Ext.create('nonq_userapp.view.LoginScreen'));
     },
 
     onUpdated: function() {

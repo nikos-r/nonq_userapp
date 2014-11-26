@@ -1,6 +1,8 @@
 Ext.define('nonq_userapp.view.TestStorePickerScreen', {
 	extend: 'Ext.Container',
-	requires: ['nonq_userapp.view.component.Header','nonq_userapp.view.component.Footer','nonq_userapp.view.component.StorePickerWrapper'],
+	requires: ['nonq_userapp.view.component.Header',
+	           'nonq_userapp.view.FooterView',
+	           'nonq_userapp.view.component.StorePickerWrapper'],
 	xtype: 'teststorepickerscreen',
 	config:{
 		layout: 'vbox',
@@ -14,7 +16,7 @@ Ext.define('nonq_userapp.view.TestStorePickerScreen', {
 	    		flex:3
 		       },
 		       {
-	    		xtype:'footercomponent',
+	    		xtype:'footerview',
 	    		flex:1
 		       }
 		]

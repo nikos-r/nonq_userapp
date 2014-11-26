@@ -4,7 +4,7 @@ Ext.define('nonq_userapp.view.component.StorePickerWrapper',{
 	xtype:'storepickerwrappercomponent',
 	config:{
 		layout:'vbox',
-		cls: 'storePickerMargin',
+//		cls: 'storePickerMargin',
 		items:[
 			{
 				xtype:'storepickercomponent'

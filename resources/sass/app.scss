@@ -120,6 +120,20 @@ $orange: #f8a924;
 }
 
 
+
+//////////////// button text only
+.textOnlyButton {
+	background: none;
+	border: none;
+}
+
+.textOnlyButton.x-button-pressing{
+	color: $orange;
+	background: none;
+	border: none;	
+}
+//////////////////////
+
 .testCls{
 	color: red !important;
 }

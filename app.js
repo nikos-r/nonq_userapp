@@ -19,14 +19,17 @@ Ext.application({
 
     views: [
         'LoginScreen',
-        'MenuScreen',
-        'MainView',
+        'HiddenMenuScreen',
+        'ViewWithHeader',
         'TestStorePickerScreen',
         'FooterView'
     ],
 
     controllers:[
-         'LoginController'
+         'LoginController',
+         'CustomerController',
+         'BranchController',
+         'HiddenMenuController'
      ],
 
     
@@ -55,8 +58,8 @@ Ext.application({
         // Initialize the main view
         Ext.Viewport.add([
 //                          {xtype:'loginscreen'},
-//                          {xtype:'menuscreen'}
-                          {xtype:'mainview'}
+                          {xtype:'hiddenmenuscreen'}
+//                          {xtype:'viewwithheader'}
 //                          {xtype:'teststorepickerscreen'}
 //                        {xtype:'footerview'}
                           ]);

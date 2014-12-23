@@ -8,8 +8,18 @@ Ext.define('nonq_userapp.ux.Drawer', {
 	drawerOpenedCallback: null,
 	drawerOpen: false,
 	openDrawerLength: 1, // float from 0 -> 1, as a proportion from the window width/height
-	indicator: false	
+	indicator: false,
+	drawerEnabled: 'yes'
   },
+  
+  
+  isDrawerOpen: function(){
+	  if(this.getActiveIndex() == 0)
+		  return true;
+	  
+	  return false;
+  },
+  
   beforeInitConfig: function(){
 	  this.callParent(arguments);  
   },
@@ -53,6 +63,7 @@ Ext.define('nonq_userapp.ux.Drawer', {
 	this.drawerClosedCallback = this.getDrawerClosedCallback();
 	this.drawerOpenedCallback = this.getDrawerOpenedCallback();
   },
+  
   initialize:function(){
 	  this.callParent(arguments);
   },
@@ -65,6 +76,13 @@ Ext.define('nonq_userapp.ux.Drawer', {
       if (!this.isDragging) {
           return;
       }
+      
+      if(this.getDrawerEnabled() != 'yes'){
+    	  return;
+      }
+      
+      //TODO this needs to be fixed. draging anywhere else should be disabled based on where the first tap was!
+//      console.log('onDrag');
 
       var startOffset = this.dragStartOffset,
           direction = this.getDirection(),
@@ -225,6 +243,12 @@ Ext.define('nonq_userapp.ux.Drawer', {
       this.refreshInactiveCarouselItems();
   },
   
+  changeDrawerItem: function(drawerItem){
+	  this.setItems([drawerItem, this.getBackgroundItem()]);
+	  this.refreshCarouselItems();
+	  this.setDrawerEnabled(true);
+  },
+  
   onAnimationEnd: function() {
 	  this.callParent(arguments);  
 	  
@@ -256,6 +280,7 @@ Ext.define('nonq_userapp.ux.Drawer', {
 		  drawerClosedCallback.call();
 	  }
   },
+  
   onDrawerOpened: function(){
 	  var drawerOpenedCallback = this.drawerOpenedCallback;
 	  if(drawerOpenedCallback != null){

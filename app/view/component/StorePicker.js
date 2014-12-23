@@ -65,12 +65,25 @@ Ext.define('nonq_userapp.view.component.StorePicker',{
 	    	scope: this,
 	        tap: 'onTap'
 	    });
+		
+		this.addListener({
+			pick : this.onPick,
+			scope: this
+		})
 	},
+	
+	onPick: function(){
+		var valueSelected = this.getValues()['store']; 
+//		console.log(this.getValues()['store']);
+		var me = this;
+		me.fireEvent('selectBranch', valueSelected);
+	},
+	
 	onTap: function(){
 		
-	  console.log('button tapped inside list ');
-	  console.log(this);
-	  console.log(this.getActiveItem());
+//	  console.log('button tapped inside list ');
+//	  console.log(this.getValue(true));
+//	  console.log(this.getActiveItem());
 //	  this.getActiveItem().setCls('testCls');
 	}
 });

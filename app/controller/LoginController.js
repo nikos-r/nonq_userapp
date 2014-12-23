@@ -3,7 +3,7 @@ Ext.define('nonq_userapp.controller.LoginController', {
 	config:{
 		refs: {
 			loginScreen: 'loginscreen',
-			menuScreen: 'menuscreen'
+			hiddenMenuScreen: 'hiddenmenuscreen'
 		},
 		control:{
 			loginScreen : {
@@ -13,7 +13,7 @@ Ext.define('nonq_userapp.controller.LoginController', {
 	},
 	
 	signInCommand : function(view){
-		menuScreen = this.getMenuScreen();
+		menuScreen = this.getHiddenMenuScreen();
 		Ext.Viewport.animateActiveItem(menuScreen, { type: 'slide', direction: 'left' });
 	}
 });

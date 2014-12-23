@@ -1,15 +1,14 @@
-Ext.define('nonq_userapp.view.MenuScreen', {
+Ext.define('nonq_userapp.view.HiddenMenuScreen', {
 	extend: 'nonq_userapp.ux.Drawer',
-	requires: ['nonq_userapp.view.MainView'],
-	xtype: 'menuscreen',
+	requires: ['nonq_userapp.view.ViewWithHeader'],
+	xtype: 'hiddenmenuscreen',
 	config:{
     	direction: 'horizontal',
+//    	enabled: true,
 		drawerOpen: false,
 	    openDrawerLength: 0.5,
 		backgroundItem:{
-//	        html : 'menu',
-//	        style: 'background-color: red'
-			xtype: 'mainview'
+			xtype: 'viewwithheader'
 		},
 		drawerItem:{
             html : 'Drawer',

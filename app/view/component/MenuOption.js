@@ -8,14 +8,24 @@ Ext.define('nonq_userapp.view.component.MenuOption',{
 		pressedImageSrc:null,
 		imageSize:null,
 		disabled:null,
+		customerId: null,
 		items:[
 			{
 				xtype:'imagebutton',
 				itemId:'menuOptionItemId',
 				style:'margin-left:auto; margin-right:auto'
 			}				
-		]		
+		]
+,
+		listeners:[
+		           {
+		        	   element: 'element',
+		        	   event:'tap',
+		        	   fn:'onMenuOptionTap'
+		           }
+        ]
 	},
+	
 	
 	initialize: function(){
 		this.callParent();
@@ -26,5 +36,19 @@ Ext.define('nonq_userapp.view.component.MenuOption',{
 		menuItem.setHeight(this.getImageSize());
 		menuItem.setWidth(this.getImageSize());
 		menuItem.setDisabled(this.getDisabled());
+		
+		//disable tap propagating
+//		this.on('tap', function() {
+//            console.log('menu option init tap');
+//        });
+	},
+	
+	
+	onMenuOptionTap: function(){
+		console.log('menu option tap');
+		var me = this;
+		if(this.getCustomerId()!=null){
+	    	me.fireEvent('selectCustomer', this.getCustomerId());
+		}
 	}
 });

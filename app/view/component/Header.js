@@ -8,7 +8,9 @@ Ext.define('nonq_userapp.view.component.Header', {
 			{
 				xtype:'container',
 				cls: 'menuButton',
-				height:'2em'
+				height:'2em',
+				itemId: 'menuButtonId'
+					
 			},
 			{
 				xtype:'headerinfocomponent',

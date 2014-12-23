@@ -11,7 +11,8 @@ Ext.define('nonq_userapp.view.component.MenuRow',{
 				activeImageSrc:'resources/icons/bank1_available.png',
 				pressedImageSrc:'resources/icons/bank1_selected.png',
 				imageSize:'4em',
-				flex: 1
+				flex: 1,
+				customerId: 'peiraiws'
 			},
 			{
 				xtype:'menuoptioncomponent',

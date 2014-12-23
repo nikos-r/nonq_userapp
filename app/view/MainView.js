@@ -4,7 +4,6 @@ Ext.define('nonq_userapp.view.MainView',{
 	requires:[
       'nonq_userapp.view.component.MenuRows',
       'nonq_userapp.view.FooterView',
-//      'nonq_userapp.view.component.Header',
       'nonq_userapp.view.component.StorePickerWrapper'
     ],
 	config:{
@@ -15,8 +14,8 @@ Ext.define('nonq_userapp.view.MainView',{
 		  xtype:'footerview'
       },
       drawerItem:{
-//    	  xtype: 'menurowscomponent',
-    	  xtype:'storepickerwrappercomponent',
+    	  xtype: 'menurowscomponent',
+//    	  xtype:'storepickerwrappercomponent',
 //    	  xtype: 'container'
     	  itemId: 'middlePane'
       }

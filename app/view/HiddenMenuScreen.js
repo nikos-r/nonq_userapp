@@ -4,7 +4,6 @@ Ext.define('nonq_userapp.view.HiddenMenuScreen', {
 	xtype: 'hiddenmenuscreen',
 	config:{
     	direction: 'horizontal',
-//    	enabled: true,
 		drawerOpen: false,
 	    openDrawerLength: 0.5,
 		backgroundItem:{

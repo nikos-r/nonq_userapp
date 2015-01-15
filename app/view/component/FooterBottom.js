@@ -6,12 +6,11 @@ Ext.define('nonq_userapp.view.component.FooterBottom',{
 	xtype:'footerbottomcomponent',
 	config:{
 		layout:'vbox',
+		
 		items:[
 			{
 				xtype:'container',
-				cls: 'backgroundGrey',
 				layout: 'hbox',
-//				flex: 3,
 				items:[
 					{
 						xtype:'container',
@@ -20,21 +19,14 @@ Ext.define('nonq_userapp.view.component.FooterBottom',{
 					{
 						xtype:'ticketdetailscomponent',
 						cls: 'backgroundGrey',
-						flex:2,
+						flex:2
 					},
 					{
 						xtype:'container',
 						flex:1
-					}
-					
+					}					
 				]		       
 			}
-//			,
-//			{
-//				xtype:'container',
-//				cls: 'backgroundGrey',
-//				flex: 0.2
-//			}
         ]
 	}
 

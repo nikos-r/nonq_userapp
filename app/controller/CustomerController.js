@@ -3,9 +3,9 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 	config:{
 		refs:{
 			menuOption : 'menuoptioncomponent',
-			viewWithFooter : 'viewwithfooter',
-			headerInfoComponent: 'headerinfocomponent'
+			viewWithFooter : 'viewwithfooter'
 		},
+		
 		control:{
 			menuOption : {
 				selectCustomer : 'selectCustomer'
@@ -14,19 +14,12 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 	},
 	
 	selectCustomer: function(customerId){
-		console.log(customerId);
+		this.getViewWithFooter().changeDrawerItem({
+			itemId : 'branchPaneId',
+			xtype : 'storepickerwrappercomponent'
+		});
 		
-		var headerTitleContainer = this.getHeaderInfoComponent().down("#headerTitleItemId");
-		var headerSubTitleContainer = this.getHeaderInfoComponent().down("#headerDetailsItemId");
-		
-		headerTitleContainer.setHtml('ΠΕΙΡΑΙΩΣ');
-		headerSubTitleContainer.setHtml('First selection');
-
-		this.getViewWithFooter().setDrawerEnabled('yes');
-
-		this.getViewWithFooter().
-				changeDrawerItem({xtype: 'storepickerwrappercomponent'});
+		this.getViewWithFooter().attachMiddlePaneListeners("branchPaneId");
 	}
-	
 	
 });

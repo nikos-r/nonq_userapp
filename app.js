@@ -29,7 +29,9 @@ Ext.application({
          'LoginController',
          'CustomerController',
          'BranchController',
-         'HiddenMenuController'
+         'HiddenMenuController',
+         'FooterController',
+         'HeaderController'
      ],
 
     

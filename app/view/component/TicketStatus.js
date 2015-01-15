@@ -9,12 +9,11 @@ Ext.define('nonq_userapp.view.component.TicketStatus',{
 			{
 				xtype:'container',
 				html:'your number'
-				
 			},
 			{
 				xtype:'container',
 				html:'345',
-				style:'font-size:5em'
+				style:'font-size:2em; padding-bottom: 0.2em'		
 			},
 			{
 				xtype:'container',
@@ -23,7 +22,7 @@ Ext.define('nonq_userapp.view.component.TicketStatus',{
 			{
 				xtype:'container',
 				html:'335',
-				style:'font-size:5em'
+				style:'font-size:2em; padding-bottom: 0.2em'
 			}
 		]
 	}

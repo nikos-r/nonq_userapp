@@ -67,7 +67,7 @@ Ext.define('nonq_userapp.view.LoginScreen',{
 	        delegate: '#enterButton',
 	        event: 'tap',
 	        fn: 'onEnterButtonTap'
-	  }],
+	  }]
     },
     onEnterButtonTap: function(){
     	var me = this;

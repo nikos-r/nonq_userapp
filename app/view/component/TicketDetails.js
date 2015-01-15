@@ -73,7 +73,7 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 				]
 			},
 			{
-				xtype:'heartlinecomponent',
+				xtype:'heartlinecomponent'
 			}	
 			
 		]

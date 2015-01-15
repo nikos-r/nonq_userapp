@@ -640,7 +640,39 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "nonq_userapp.view.Main": []
+  "nonq_userapp.controller.BranchController": [],
+  "nonq_userapp.controller.CustomerController": [],
+  "nonq_userapp.controller.FooterController": [],
+  "nonq_userapp.controller.HeaderController": [],
+  "nonq_userapp.controller.HiddenMenuController": [],
+  "nonq_userapp.controller.LoginController": [],
+  "nonq_userapp.ux.Drawer": [],
+  "nonq_userapp.ux.ImageButton": [],
+  "nonq_userapp.view.FooterView": [],
+  "nonq_userapp.view.HiddenMenuScreen": [],
+  "nonq_userapp.view.LoginScreen": [],
+  "nonq_userapp.view.Main": [],
+  "nonq_userapp.view.MainView": [],
+  "nonq_userapp.view.Test": [],
+  "nonq_userapp.view.TestRow": [],
+  "nonq_userapp.view.TestStorePickerScreen": [],
+  "nonq_userapp.view.TestTicketDetails": [],
+  "nonq_userapp.view.ViewWithFooter": [],
+  "nonq_userapp.view.ViewWithHeader": [],
+  "nonq_userapp.view.component.Back": [],
+  "nonq_userapp.view.component.FooterBottom": [],
+  "nonq_userapp.view.component.FooterTop": [],
+  "nonq_userapp.view.component.Header": [],
+  "nonq_userapp.view.component.HeaderInfo": [],
+  "nonq_userapp.view.component.HeartLine": [],
+  "nonq_userapp.view.component.MenuOption": [],
+  "nonq_userapp.view.component.MenuRow": [],
+  "nonq_userapp.view.component.MenuRows": [],
+  "nonq_userapp.view.component.StorePicker": [],
+  "nonq_userapp.view.component.StorePickerWrapper": [],
+  "nonq_userapp.view.component.TicketDetails": [],
+  "nonq_userapp.view.component.TicketStatus": [],
+  "nonq_userapp.view.component.TransportOption": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1359,7 +1391,91 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "nonq_userapp.controller.BranchController": [],
+  "nonq_userapp.controller.CustomerController": [],
+  "nonq_userapp.controller.FooterController": [],
+  "nonq_userapp.controller.HeaderController": [],
+  "nonq_userapp.controller.HiddenMenuController": [],
+  "nonq_userapp.controller.LoginController": [],
+  "nonq_userapp.ux.Drawer": [
+    "widget.drawer"
+  ],
+  "nonq_userapp.ux.ImageButton": [
+    "widget.imagebutton"
+  ],
+  "nonq_userapp.view.FooterView": [
+    "widget.footerview"
+  ],
+  "nonq_userapp.view.HiddenMenuScreen": [
+    "widget.hiddenmenuscreen"
+  ],
+  "nonq_userapp.view.LoginScreen": [
+    "widget.loginscreen"
+  ],
   "nonq_userapp.view.Main": [
     "widget.main"
+  ],
+  "nonq_userapp.view.MainView": [
+    "widget.mainview"
+  ],
+  "nonq_userapp.view.Test": [
+    "widget.testview"
+  ],
+  "nonq_userapp.view.TestRow": [
+    "widget.testrowview"
+  ],
+  "nonq_userapp.view.TestStorePickerScreen": [
+    "widget.teststorepickerscreen"
+  ],
+  "nonq_userapp.view.TestTicketDetails": [
+    "widget.testticketdetailsview"
+  ],
+  "nonq_userapp.view.ViewWithFooter": [
+    "widget.viewwithfooter"
+  ],
+  "nonq_userapp.view.ViewWithHeader": [
+    "widget.viewwithheader"
+  ],
+  "nonq_userapp.view.component.Back": [
+    "widget.backcomponent"
+  ],
+  "nonq_userapp.view.component.FooterBottom": [
+    "widget.footerbottomcomponent"
+  ],
+  "nonq_userapp.view.component.FooterTop": [
+    "widget.footertopcomponent"
+  ],
+  "nonq_userapp.view.component.Header": [
+    "widget.headercomponent"
+  ],
+  "nonq_userapp.view.component.HeaderInfo": [
+    "widget.headerinfocomponent"
+  ],
+  "nonq_userapp.view.component.HeartLine": [
+    "widget.heartlinecomponent"
+  ],
+  "nonq_userapp.view.component.MenuOption": [
+    "widget.menuoptioncomponent"
+  ],
+  "nonq_userapp.view.component.MenuRow": [
+    "widget.menurowcomponent"
+  ],
+  "nonq_userapp.view.component.MenuRows": [
+    "widget.menurowscomponent"
+  ],
+  "nonq_userapp.view.component.StorePicker": [
+    "widget.storepickercomponent"
+  ],
+  "nonq_userapp.view.component.StorePickerWrapper": [
+    "widget.storepickerwrappercomponent"
+  ],
+  "nonq_userapp.view.component.TicketDetails": [
+    "widget.ticketdetailscomponent"
+  ],
+  "nonq_userapp.view.component.TicketStatus": [
+    "widget.ticketstatuscomponent"
+  ],
+  "nonq_userapp.view.component.TransportOption": [
+    "widget.transportoptioncomponent"
   ]
 });

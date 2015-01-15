@@ -13,7 +13,7 @@ Ext.define('nonq_userapp.controller.LoginController', {
 	},
 	
 	signInCommand : function(view){
-		menuScreen = this.getHiddenMenuScreen();
+		var menuScreen = this.getHiddenMenuScreen();
 		Ext.Viewport.animateActiveItem(menuScreen, { type: 'slide', direction: 'left' });
 	}
 });

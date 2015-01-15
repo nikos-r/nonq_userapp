@@ -24,7 +24,7 @@ Ext.define('nonq_userapp.view.component.HeaderInfo',{
         	 cls: [
     	       'headerInfoText',
     	       'headerDetails'
-        	 ],
+        	 ]
 //	         html: 'Î‘Î˜Î—Î�Î‘Î£ 61, Î‘Î˜Î—Î�Î‘<br/>15234, 210 6850440'	         
          }
 	  ],
@@ -35,7 +35,7 @@ Ext.define('nonq_userapp.view.component.HeaderInfo',{
 		  	element:'element',
 	        event: 'tap',
 	        fn: 'onHeaderTitleTap'
-	  }],
+	  }]
     },
     onHeaderTitleTap: function(){
     	var headerTitleItem = this.down("#headerTitleItemId");

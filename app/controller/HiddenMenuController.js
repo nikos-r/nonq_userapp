@@ -4,13 +4,21 @@ Ext.define('nonq_userapp.controller.HiddenMenuController',{
 		refs:{
 			viewWithHeader : 'viewwithheader',
 			viewWithFooter : 'viewwithfooter',
-			menuScreen : 'hiddenmenuscreen'
+			menuScreen : 'hiddenmenuscreen',
+			menuOption : 'menuoptioncomponent'
 		},
 		control:{
+			menuOption : {
+				selectCustomer : 'enableHiddenMenuDrawer'
+			},
 			viewWithFooter:{
-				swipeCustomer : 'swipeCustomer',
-				touchStartCustomers : 'touchStartCustomers',
-				tapCustomers : 'tapCustomers'
+				middleSwipe : 'enableHiddenMenuDrawer',
+				middleTouchStart : 'disableHiddenMenuDrawer',
+				middleTap : 'enableHiddenMenuDrawer',
+				mainButtonSwipe : 'enableHiddenMenuDrawer',
+				mainButtonTouchStart : 'disableHiddenMenuDrawer',
+				mainButtonTap : 'enableHiddenMenuDrawer',
+				drawerDragEnd: 'enableHiddenMenuDrawer'
 			},
 			viewWithHeader:{
 				toggleHiddenMenu : 'toggleHiddenMenu'
@@ -21,20 +29,14 @@ Ext.define('nonq_userapp.controller.HiddenMenuController',{
 	},
 
 	
-	tapCustomers: function(){
-		console.log('controller listened to tap');
-		this.getMenuScreen().setDrawerEnabled('yes');
-	},
-
-	
-	swipeCustomer: function(){
-		console.log('controller listened to customer swipe');
-		this.getMenuScreen().setDrawerEnabled('yes');
+	enableHiddenMenuDrawer : function(){
+		console.log('hidden menu enable');
+		this.getMenuScreen().setDrawerEnabled(true);
 	},
 	
-	touchStartCustomers : function(){
-		console.log('controller listened touch start');
-		this.getMenuScreen().setDrawerEnabled('no');
+	disableHiddenMenuDrawer : function(){
+		console.log('hidden menu disable');
+		this.getMenuScreen().setDrawerEnabled(false);
 	},
 	
 	toggleHiddenMenu : function(){

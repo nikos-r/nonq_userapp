@@ -11,10 +11,11 @@ Ext.define('nonq_userapp.view.FooterView',{
 		items:[
 			{
 			   xtype:'footertopcomponent',
-			   height: '10em' //2.5 x height(headerinfocomponent)
+			   height: '7em' //2.5 x height(headerinfocomponent)
 			},
 			{
 				xtype: 'footerbottomcomponent',
+				cls: 'backgroundGrey',
 				flex: 1
 			}
         ]

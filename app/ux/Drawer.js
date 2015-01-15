@@ -6,10 +6,11 @@ Ext.define('nonq_userapp.ux.Drawer', {
 	drawerItem: null, //drawer is the item that is either fully open or fully closed.
 	drawerClosedCallback: null,
 	drawerOpenedCallback: null,
+//	animationOpenedCallback: null,
 	drawerOpen: false,
 	openDrawerLength: 1, // float from 0 -> 1, as a proportion from the window width/height
 	indicator: false,
-	drawerEnabled: 'yes'
+	drawerEnabled: true
   },
   
   
@@ -77,13 +78,10 @@ Ext.define('nonq_userapp.ux.Drawer', {
           return;
       }
       
-      if(this.getDrawerEnabled() != 'yes'){
+      if(!this.getDrawerEnabled()){
     	  return;
       }
       
-      //TODO this needs to be fixed. draging anywhere else should be disabled based on where the first tap was!
-//      console.log('onDrag');
-
       var startOffset = this.dragStartOffset,
           direction = this.getDirection(),
           delta = direction === 'horizontal' ? e.deltaX : e.deltaY,
@@ -133,6 +131,8 @@ Ext.define('nonq_userapp.ux.Drawer', {
 
       this.setOffset(offset);
   },
+  
+  
   onDragStart: function(e){
       var direction = this.getDirection(),
       absDeltaX = e.absDeltaX,
@@ -188,6 +188,7 @@ Ext.define('nonq_userapp.ux.Drawer', {
 	  this.beforeActionActiveIndex = this.getActiveIndex();
   },
   
+  
   refreshSizing: function() {
     var element = this.element,
         itemLength = this.getItemLength(),
@@ -219,6 +220,8 @@ Ext.define('nonq_userapp.ux.Drawer', {
     translatableItemLength[this.currentAxis] = itemLength;
     this.getTranslatable().setItemLength(translatableItemLength);
   },
+  
+  
   refreshCarouselItems: function() {
       var items = this.carouselItems,
           i, ln, item;
@@ -246,7 +249,6 @@ Ext.define('nonq_userapp.ux.Drawer', {
   changeDrawerItem: function(drawerItem){
 	  this.setItems([drawerItem, this.getBackgroundItem()]);
 	  this.refreshCarouselItems();
-	  this.setDrawerEnabled(true);
   },
   
   onAnimationEnd: function() {
@@ -271,7 +273,7 @@ Ext.define('nonq_userapp.ux.Drawer', {
 				  this.onDrawerClosed();
 			  }
 		  }
-	  }	  
+	  }
   },
   
   onDrawerClosed: function(){

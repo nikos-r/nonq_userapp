@@ -36,11 +36,7 @@ Ext.define('nonq_userapp.view.component.MenuOption',{
 		menuItem.setHeight(this.getImageSize());
 		menuItem.setWidth(this.getImageSize());
 		menuItem.setDisabled(this.getDisabled());
-		
-		//disable tap propagating
-//		this.on('tap', function() {
-//            console.log('menu option init tap');
-//        });
+
 	},
 	
 	

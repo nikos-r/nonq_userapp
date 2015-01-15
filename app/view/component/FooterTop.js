@@ -6,9 +6,9 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 	    layout: 'vbox',
 	    items:[
 		    {
-		    	xtype: 'container',
-		    	flex: 4,
+		    	xtype: 'container',		    	
 				layout: 'hbox',
+				height: '6em',
 				items:[
 					{
 						xtype:'container',
@@ -18,13 +18,14 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 						items:[
 							{
 							  xtype: 'container',
-							  flex : 5
+							  flex: 5
 							},
 							{
 							  xtype: 'backcomponent',
-							  flex : 1
+							  flex: 1
 							}
-						]
+						],
+						height: '6em'
 					},
 					{
 						xtype:'container',
@@ -34,22 +35,25 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 								xtype:'image',
 								src: 'resources/icons/main_button.png',
 								height:'100%',
-								width:'100%'
+								width:'100%',
+								itemId: 'mainButtonId'
 							}
 						],
+						height: '6em',
 						flex:2	
 					},
 					{
 						xtype:'container',
 						flex: 1,
+						height: '6em',
 						cls: 'footer2ColorBackground'	
-					},
+					}
 				]
 	
 		    },
 		    {
 		      xtype: 'container',
-		      flex: 1,
+		      height: '1em',
 		      layout: 'hbox',
 		      items:[
 					{
@@ -66,7 +70,7 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 						xtype:'container',
 						flex: 1,
 						cls: 'backgroundGrey'	
-					},
+					}
 				]
 		    }
 		    

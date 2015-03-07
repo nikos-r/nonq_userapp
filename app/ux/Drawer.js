@@ -1,50 +1,72 @@
-Ext.define('MyApp.ux.CarouselDrawer', {
+Ext.define('nonq_userapp.ux.Drawer', {
   extend: 'Ext.Carousel',
-  xtype: 'carouseldrawer',
+  xtype: 'drawer',
   config:{
 	backgroundItem: null,
-	drawerItem: null,
-	defaultActive: null,
-	backgroundItemLength: null,
-	openDrawerLength: 0,
-	parentContainerItemId: null
+	drawerItem: null, //drawer is the item that is either fully open or fully closed.
+	drawerClosedCallback: null,
+	drawerOpenedCallback: null,
+//	animationOpenedCallback: null,
+	drawerOpen: false,
+	openDrawerLength: 1, // float from 0 -> 1, as a proportion from the window width/height
+	indicator: false,
+	drawerEnabled: true
   },
+  
+  
+  isDrawerOpen: function(){
+	  if(this.getActiveIndex() == 0)
+		  return true;
+	  
+	  return false;
+  },
+  
   beforeInitConfig: function(){
 	  this.callParent(arguments);  
-	  console.log('before ini');
   },
   
   beforeInitialize: function(){
     this.callParent(arguments);
     
-console.log(this.getDirection());
-	var itemLength;
-
+	var drawerLength;
+	
 	if(this.getDirection()==='horizontal'){
-		itemLength = (1-this.getOpenDrawerLength()) * Ext.Viewport.getWindowWidth();
-		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowWidth() + ' '+ itemLength);
+		drawerLength = this.getOpenDrawerLength() * Ext.Viewport.getWindowWidth();
 	}
 	if(this.getDirection()==='vertical'){
-		itemLength = (1-this.getOpenDrawerLength()) * Ext.Viewport.getWindowHeight();
-		console.log(this.getOpenDrawerLength() + ' '+ Ext.Viewport.getWindowHeight() + ' '+ itemLength);
+		drawerLength = this.getOpenDrawerLength() * Ext.Viewport.getWindowHeight();
 	}
 	
-	this.setItemLength(itemLength);    
+	this.setItemLength(drawerLength);    
 
-	
-	this.setItems([this.getBackgroundItem(), this.getDrawerItem()]);
-	if(this.getDefaultActive()==='drawer'){
-	  this.setActiveItem(1);
+	var drawerIndex;
+	var backgroundIndex;
+	if(this.getDirection()==='horizontal'){
+		//drawer is on the left
+		this.setItems([this.getDrawerItem(), this.getBackgroundItem()]);
+		drawerIndex = 0;
+		backgroundIndex = 1;
+	}
+	if(this.getDirection()==='vertical'){
+		//drawer is on the top
+		this.setItems([this.getDrawerItem(), this.getBackgroundItem()]);
+		drawerIndex = 0;
+		backgroundIndex = 1;
 	}
 	
+	if(this.getDrawerOpen()){
+		this.setActiveItem(drawerIndex);
+	}
+	else{
+		this.setActiveItem(backgroundIndex);
+	}
 	
-	
-	
-console.log('beforeinit '+this.getItemLength());
+	this.drawerClosedCallback = this.getDrawerClosedCallback();
+	this.drawerOpenedCallback = this.getDrawerOpenedCallback();
   },
+  
   initialize:function(){
 	  this.callParent(arguments);
-	  console.log('init');
   },
   constructor: function(config){
 	  this.callParent(arguments);
@@ -55,7 +77,11 @@ console.log('beforeinit '+this.getItemLength());
       if (!this.isDragging) {
           return;
       }
-
+      
+      if(!this.getDrawerEnabled()){
+    	  return;
+      }
+      
       var startOffset = this.dragStartOffset,
           direction = this.getDirection(),
           delta = direction === 'horizontal' ? e.deltaX : e.deltaY,
@@ -105,12 +131,13 @@ console.log('beforeinit '+this.getItemLength());
 
       this.setOffset(offset);
   },
+  
+  
   onDragStart: function(e){
       var direction = this.getDirection(),
       absDeltaX = e.absDeltaX,
       absDeltaY = e.absDeltaY,
       directionLock = this.getDirectionLock();
-
       
       // disable swiping for first and last card
       // leave to catch early dragstart, even if it's better caught drag
@@ -157,7 +184,11 @@ console.log('beforeinit '+this.getItemLength());
 	
 	  this.dragStartOffset = this.offset;
 	  this.dragDirection = 0;
+	
+	  this.beforeActionActiveIndex = this.getActiveIndex();
   },
+  
+  
   refreshSizing: function() {
     var element = this.element,
         itemLength = this.getItemLength(),
@@ -181,23 +212,16 @@ console.log('beforeinit '+this.getItemLength());
         itemOffset = 0;
     }
     else {
-//    	itemOffset = (containerSize - itemLength) / 2;
-    	// always start at 0
     	itemOffset=0;
     }
-
-//console.log('containerSize : '+containerSize);
-//    itemLength = (1-this.getOpenDrawerLength()) * containerSize;
-//	
-//	this.itemLength = Math.floor(itemLength);
-//	
-//console.log(this.getOpenDrawerLength()+ ' '+this.itemLength);
 
     this.itemLength = itemLength;
     this.itemOffset = itemOffset;
     translatableItemLength[this.currentAxis] = itemLength;
     this.getTranslatable().setItemLength(translatableItemLength);
   },
+  
+  
   refreshCarouselItems: function() {
       var items = this.carouselItems,
           i, ln, item;
@@ -206,7 +230,6 @@ console.log('beforeinit '+this.getItemLength());
       for (i = 0,ln = items.length; i < ln; i++) {
       	item = items[i];
       	var component = item.getComponent();
-//console.log('i: '+i +' component: '+ component);      	
       	// drawer should have full height
       	var direction = this.getDirection();
       	if(i==1 && direction==='vertical'){
@@ -221,6 +244,50 @@ console.log('beforeinit '+this.getItemLength());
       }
 
       this.refreshInactiveCarouselItems();
+  },
+  
+  changeDrawerItem: function(drawerItem){
+	  this.setItems([drawerItem, this.getBackgroundItem()]);
+	  this.refreshCarouselItems();
+  },
+  
+  onAnimationEnd: function() {
+	  this.callParent(arguments);  
+	  
+	  var afterActionActiveIndex = this.getActiveIndex();
+	  
+	  if(afterActionActiveIndex != this.beforeActionActiveIndex){
+		  if(this.getDirection()==='vertical'){
+			  if(afterActionActiveIndex===0){
+				  this.onDrawerOpened();
+			  }
+			  else{
+				  this.onDrawerClosed();
+			  }
+		  }
+		  if(this.getDirection()==='horizontal'){
+			  if(afterActionActiveIndex===0){
+				  this.onDrawerOpened();
+			  }
+			  else{
+				  this.onDrawerClosed();
+			  }
+		  }
+	  }
+  },
+  
+  onDrawerClosed: function(){
+	  var drawerClosedCallback = this.drawerClosedCallback;
+	  if(drawerClosedCallback != null){
+		  drawerClosedCallback.call();
+	  }
+  },
+  
+  onDrawerOpened: function(){
+	  var drawerOpenedCallback = this.drawerOpenedCallback;
+	  if(drawerOpenedCallback != null){
+		  drawerOpenedCallback.call();
+	  }
   }
 
 });

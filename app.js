@@ -18,9 +18,23 @@ Ext.application({
     ],
 
     views: [
-        'Main'
+        'LoginScreen',
+        'HiddenMenuScreen',
+        'ViewWithHeader',
+        'TestStorePickerScreen',
+        'FooterView'
     ],
 
+    controllers:[
+         'LoginController',
+         'CustomerController',
+         'BranchController',
+         'HiddenMenuController',
+         'FooterController',
+         'HeaderController'
+     ],
+
+    
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -44,7 +58,14 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('nonq_userapp.view.Main'));
+        Ext.Viewport.add([
+                          {xtype:'loginscreen'},
+                          {xtype:'hiddenmenuscreen'}
+//                          {xtype:'viewwithheader'}
+//                          {xtype:'teststorepickerscreen'}
+//                        {xtype:'footerview'}
+                          ]);
+//        		Ext.create('nonq_userapp.view.LoginScreen'));
     },
 
     onUpdated: function() {

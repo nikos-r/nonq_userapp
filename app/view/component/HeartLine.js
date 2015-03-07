@@ -27,10 +27,9 @@ Ext.define('nonq_userapp.view.component.HeartLine',{
 				cls:'backgroundGreen',
 				xtype:'imagebutton',
 				toggleButton: true,
-//				style:'margin-left:auto; margin-right:auto;',
 				disabledImageSrc:'resources/icons/heart_available.png',
 				activeImageSrc:'resources/icons/heart_available.png',
-				pressedImageSrc:'resources/icons/heart_selected.png',
+				pressedImageSrc:'resources/icons/heart_bg.png',
 				width:'3em',
 				height:'3em',
 				text:'test'

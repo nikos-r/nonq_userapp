@@ -11,7 +11,8 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 		items:[
 			{
 				xtype:'ticketstatuscomponent'
-			},
+			}
+			,
 			{
 				xtype:'container',
 				style:'text-align:center; color:white',

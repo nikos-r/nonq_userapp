@@ -59,7 +59,7 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add([
-//                          {xtype:'loginscreen'},
+                          {xtype:'loginscreen'},
                           {xtype:'hiddenmenuscreen'}
 //                          {xtype:'viewwithheader'}
 //                          {xtype:'teststorepickerscreen'}

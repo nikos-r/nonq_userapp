@@ -1,4 +1,6 @@
+.DS_Store
 .buildpath
 .project
 .settings
 resources/sass/.sass-cache/
+build/

@@ -16,7 +16,7 @@ Ext.define('nonq_userapp.view.FooterView',{
 			{
 				xtype: 'footerbottomcomponent',
 				cls: 'backgroundGrey',
-				flex: 1
+				height: '28em'
 			}
         ]
 	}

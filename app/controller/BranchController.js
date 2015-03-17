@@ -5,14 +5,28 @@ Ext.define('nonq_userapp.controller.BranchController',{
 			storePicker: 'storepickercomponent',
 			header : 'headerinfocomponent',
 			viewWithFooter : 'viewwithfooter'
+		},
+		control:{
+			viewWithFooter : {
+				backButtonTap : 'backButtonTap'
+			}
 		}
-//		control:{
-//			storePicker:{
-//				selectBranch : 'selectBranch'
-//			}
+	},
+	
+	
+	backButtonTap : function(){
+		console.log("going back");
+
+		this.getViewWithFooter().refreshDrawerItem(
+//				function(){
+//				this.getViewWithFooter().changeDrawerItem(
+				{
+					itemId : 'customersPaneId',
+					xtype : 'menurowscomponent'
+				}
+//				)
 //		}
+		);
 	}
-	
-	
 	
 });

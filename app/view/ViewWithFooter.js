@@ -33,8 +33,25 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 			scope : this,
 			dragend : 'onDrawerDragEnd'
 		});
+		
+//		this.attachBackButtonListeners("backButtonId");
 	},
     
+	attachBackButtonListeners : function(itemId){
+		var backButton = this.down("#"+itemId);
+		
+		console.log("back button listeners");
+		console.log(backButton);
+		console.log("back button listeners");
+		
+		
+		backButton.addListener({
+			element : 'element',
+			scope : this,
+			tap : 'onBackButtonTap'
+		});
+	},
+	
     attachMainButtonListeners : function(itemId){
     	var mainButton = this.down("#"+itemId);
     	
@@ -128,7 +145,10 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
     onMainButtonSwipe:function(){
 		var me = this;
 		me.fireEvent('mainButtonSwipe');
+    },
+
+    onBackButtonTap : function(){
+    	var me = this;
+    	me.fireEvent('backButtonTap')
     }
-
-
 });

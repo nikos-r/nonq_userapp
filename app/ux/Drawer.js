@@ -246,10 +246,30 @@ Ext.define('nonq_userapp.ux.Drawer', {
       this.refreshInactiveCarouselItems();
   },
   
+  
+  
   changeDrawerItem: function(drawerItem){
 	  this.setItems([drawerItem, this.getBackgroundItem()]);
 	  this.refreshCarouselItems();
   },
+  
+  
+  refreshDrawerItem: function(callback){
+	  if(this.isDrawerOpen()){
+		  this.changeDrawerItem(callback);
+		  return;
+	  }
+	  
+	  var me = this;
+	  var oldDrawerOpenedCallback = this.getDrawerOpenedCallback();
+	  this.drawerOpenedCallback = function(){
+		  me.changeDrawerItem(callback);
+		  me.drawerOpenedCallback = oldDrawerOpenedCallback;
+	  }
+	  this.beforeActionActiveIndex = this.getActiveIndex();
+	  this.previous();
+  },
+  
   
   onAnimationEnd: function() {
 	  this.callParent(arguments);  

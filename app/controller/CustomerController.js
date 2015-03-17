@@ -20,6 +20,12 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 		});
 		
 		this.getViewWithFooter().attachMiddlePaneListeners("branchPaneId");
-	}
+		
+		this.getViewWithFooter().attachBackButtonListeners("backButtonId");
+		
+//		var backButton = this.getViewWithFooter().down("#backButtonId");
+//		backButton.setDisabled(false);
+	},
+
 	
 });

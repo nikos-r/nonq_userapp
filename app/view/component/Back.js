@@ -1,10 +1,15 @@
 Ext.define('nonq_userapp.view.component.Back', {
 	extend: 'Ext.Container',
+	requires:['Ext.Button'],
 	xtype: 'backcomponent',
 	config:{
 	  items:[
 		  {
-			  html: 'back'  
+			  
+			  xtype: 'button',
+			  cls:'textOnlyButton internalTextAlignLeft',
+			  text: 'back',
+			  itemId: 'backButtonId'
 		  }	  
 	  ]
     }

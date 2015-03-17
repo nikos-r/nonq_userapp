@@ -16,13 +16,17 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 						layout: 'vbox',
 						cls: 'footer2ColorBackground',
 						items:[
-							{
-							  xtype: 'container',
-							  flex: 5
+					        {
+						 	  xtype: 'container',
+							  flex: 3,
 							},
-							{
+						    {
 							  xtype: 'backcomponent',
 							  flex: 1
+							},
+							{
+							  xtype: 'container',
+							  flex: 2
 							}
 						],
 						height: '6em'

@@ -254,16 +254,16 @@ Ext.define('nonq_userapp.ux.Drawer', {
   },
   
   
-  refreshDrawerItem: function(callback){
+  refreshDrawerItem: function(newDrawerItem){
 	  if(this.isDrawerOpen()){
-		  this.changeDrawerItem(callback);
+		  this.changeDrawerItem(newDrawerItem);
 		  return;
 	  }
 	  
 	  var me = this;
 	  var oldDrawerOpenedCallback = this.getDrawerOpenedCallback();
 	  this.drawerOpenedCallback = function(){
-		  me.changeDrawerItem(callback);
+		  me.changeDrawerItem(newDrawerItem);
 		  me.drawerOpenedCallback = oldDrawerOpenedCallback;
 	  }
 	  this.beforeActionActiveIndex = this.getActiveIndex();

@@ -31,7 +31,8 @@ Ext.application({
          'BranchController',
          'HiddenMenuController',
          'FooterController',
-         'HeaderController'
+         'HeaderController',
+         'TicketController'
      ],
 
     

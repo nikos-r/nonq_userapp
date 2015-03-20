@@ -4,7 +4,8 @@ Ext.define('nonq_userapp.controller.HeaderController', {
 		refs:{
 			storePicker: 'storepickercomponent',
 			menuOption : 'menuoptioncomponent',
-			headerInfoComponent: 'headerinfocomponent'
+			headerInfoComponent: 'headerinfocomponent',
+			viewWithFooter : 'viewwithfooter'
 		},
 		control:{
 			menuOption : {
@@ -12,10 +13,23 @@ Ext.define('nonq_userapp.controller.HeaderController', {
 			},
 			storePicker:{
 				selectBranch : 'selectBranch'
+			},
+			viewWithFooter : {
+				backButtonTap : 'backButtonTap'
 			}
+			
+			
 		}
 	},
 
+	
+	backButtonTap : function(){
+		var headerTitleContainer = this.getHeaderInfoComponent().down("#headerTitleItemId");
+		var headerSubTitleContainer = this.getHeaderInfoComponent().down("#headerDetailsItemId");
+		
+		headerTitleContainer.setHtml('where do you want to go?');
+		headerSubTitleContainer.setHtml('');
+	},
 	
 	selectCustomer: function(customerId){
 		console.log(customerId);

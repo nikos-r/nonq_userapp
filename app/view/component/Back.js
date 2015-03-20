@@ -9,8 +9,8 @@ Ext.define('nonq_userapp.view.component.Back', {
 			  xtype: 'button',
 			  cls:'textOnlyButton internalTextAlignLeft',
 			  text: 'back',
-			  itemId: 'backButtonId'
-//			  disabled: true
+			  itemId: 'backButtonId',
+			  disabled: true
 		  }	  
 	  ]
     }

@@ -12,38 +12,35 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 	  drawerOpen: true,
 	  openDrawerLength: 0.6,
 	  itemId: 'viewWithFooter',
+	  drawerClosedCallback: null,
 	  backgroundItem:{
 		  xtype:'footerview'
       },
       drawerItem:{
     	  xtype: 'menurowscomponent',
-//    	  xtype:'storepickerwrappercomponent',
     	  itemId: 'customersPaneId'
       }            
     },
 
     initialize : function() {
 		this.callParent(arguments);
-
-		// this.attachMainButtonListeners("mainButtonId")
-		//  	  
+		var me = this;
+		
+		this.drawerClosedCallback = function(){
+			me.onTicketOpen();
+		}
+		
+		
 		this.attachMiddlePaneListeners("customersPaneId");
 		this.on({
 			element : 'element',
 			scope : this,
 			dragend : 'onDrawerDragEnd'
 		});
-		
-//		this.attachBackButtonListeners("backButtonId");
 	},
     
 	attachBackButtonListeners : function(itemId){
 		var backButton = this.down("#"+itemId);
-		
-		console.log("back button listeners");
-		console.log(backButton);
-		console.log("back button listeners");
-		
 		
 		backButton.addListener({
 			element : 'element',
@@ -150,5 +147,10 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
     onBackButtonTap : function(){
     	var me = this;
     	me.fireEvent('backButtonTap')
+    },
+    
+    onTicketOpen : function(){
+    	var me = this;
+    	me.fireEvent('ticketOpen');
     }
 });

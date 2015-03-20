@@ -15,18 +15,15 @@ Ext.define('nonq_userapp.controller.BranchController',{
 	
 	
 	backButtonTap : function(){
-		console.log("going back");
-
 		this.getViewWithFooter().refreshDrawerItem(
-//				function(){
-//				this.getViewWithFooter().changeDrawerItem(
 				{
 					itemId : 'customersPaneId',
 					xtype : 'menurowscomponent'
 				}
-//				)
-//		}
 		);
+		
+		var backButton = this.getViewWithFooter().down("#backButtonId");
+		backButton.setDisabled(true);
 	}
 	
 });

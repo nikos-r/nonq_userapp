@@ -30,7 +30,9 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 					{
 						xtype:'container',
 						html: '15\'',
+						itemId: 'timeRemainingId',
 						cls:'backgroundOrange fontColorGreen'
+							
 						
 					}
 				]

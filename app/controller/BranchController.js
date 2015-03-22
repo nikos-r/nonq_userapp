@@ -2,28 +2,37 @@ Ext.define('nonq_userapp.controller.BranchController',{
 	extend: 'Ext.app.Controller',
 	config:{
 		refs:{
-			storePicker: 'storepickercomponent',
-			header : 'headerinfocomponent',
+			backButton : '#backButtonId',
+//			storePicker: 'storepickercomponent',
+//			header : 'headerinfocomponent',
 			viewWithFooter : 'viewwithfooter'
 		},
 		control:{
 			viewWithFooter : {
-				backButtonTap : 'backButtonTap'
+				backButtonTap : 'goBack'
 			}
 		}
 	},
 	
 	
-	backButtonTap : function(){
-		this.getViewWithFooter().refreshDrawerItem(
+	goBack : function(){
+		if(this.getViewWithFooter().isDrawerOpen()){
+			this.showCustomers();
+		}
+		else{
+			this.getViewWithFooter().openDrawer();
+		}
+	},
+	
+	showCustomers : function(){
+		this.getViewWithFooter().changeDrawerItem(
 				{
 					itemId : 'customersPaneId',
 					xtype : 'menurowscomponent'
 				}
 		);
 		
-		var backButton = this.getViewWithFooter().down("#backButtonId");
-		backButton.setDisabled(true);
+		this.getBackButton().setDisabled(true);
 	}
 	
 });

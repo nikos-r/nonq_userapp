@@ -13,6 +13,7 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 	  openDrawerLength: 0.6,
 	  itemId: 'viewWithFooter',
 	  drawerClosedCallback: null,
+	  drawerOpenedCallback: null,
 	  backgroundItem:{
 		  xtype:'footerview'
       },
@@ -30,6 +31,9 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 			me.onTicketOpen();
 		}
 		
+		this.drawerOpenedCallback = function(){
+			me.onTicketClosed();
+		}
 		
 		this.attachMiddlePaneListeners("customersPaneId");
 		this.on({
@@ -152,5 +156,10 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
     onTicketOpen : function(){
     	var me = this;
     	me.fireEvent('ticketOpen');
+    },
+    
+    onTicketClosed : function(){
+    	var me = this;
+    	me.fireEvent('ticketClosed');
     }
 });

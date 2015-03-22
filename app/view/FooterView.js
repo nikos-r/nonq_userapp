@@ -11,7 +11,7 @@ Ext.define('nonq_userapp.view.FooterView',{
 		items:[
 			{
 			   xtype:'footertopcomponent',
-			   height: '7em' //2.5 x height(headerinfocomponent)
+			   height: '6em' //2.5 x height(headerinfocomponent)
 			},
 			{
 				xtype: 'footerbottomcomponent',

@@ -2,6 +2,7 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 	extend: 'Ext.app.Controller',
 	config:{
 		refs:{
+			backButton : '#backButtonId',
 			menuOption : 'menuoptioncomponent',
 			viewWithFooter : 'viewwithfooter'
 		},
@@ -14,7 +15,7 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 	},
 	
 	selectCustomer: function(customerId){
-		this.getViewWithFooter().refreshDrawerItem({
+		this.getViewWithFooter().changeDrawerItem({
 			itemId : 'branchPaneId',
 			xtype : 'storepickerwrappercomponent'
 		});
@@ -23,7 +24,6 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 		
 		this.getViewWithFooter().attachBackButtonListeners("backButtonId");
 		
-		var backButton = this.getViewWithFooter().down("#backButtonId");
-		backButton.setDisabled(false);
+		this.getBackButton().setDisabled(false);
 	}
 });

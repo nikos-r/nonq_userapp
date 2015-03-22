@@ -259,17 +259,21 @@ Ext.define('nonq_userapp.ux.Drawer', {
 		  this.changeDrawerItem(newDrawerItem);
 		  return;
 	  }
-	  
-	  var me = this;
-	  var oldDrawerOpenedCallback = this.getDrawerOpenedCallback();
-	  this.drawerOpenedCallback = function(){
-		  me.changeDrawerItem(newDrawerItem);
-		  me.drawerOpenedCallback = oldDrawerOpenedCallback;
-	  }
+//	  
+//	  var me = this;
+//	  var oldDrawerOpenedCallback = this.getDrawerOpenedCallback();
+//	  this.drawerOpenedCallback = function(){
+//		  me.changeDrawerItem(newDrawerItem);
+//		  me.drawerOpenedCallback = oldDrawerOpenedCallback;
+//	  }
+//	  this.beforeActionActiveIndex = this.getActiveIndex();
+//	  this.previous();
+  },
+  
+  openDrawer : function(){
 	  this.beforeActionActiveIndex = this.getActiveIndex();
 	  this.previous();
   },
-  
   
   onAnimationEnd: function() {
 	  this.callParent(arguments);  

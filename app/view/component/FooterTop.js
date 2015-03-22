@@ -8,7 +8,7 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 		    {
 		    	xtype: 'container',		    	
 				layout: 'hbox',
-				height: '6em',
+				height: '5em',
 				items:[
 					{
 						xtype:'container',
@@ -18,7 +18,7 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 						items:[
 					        {
 						 	  xtype: 'container',
-							  flex: 3,
+							  flex: 3
 							},
 						    {
 							  xtype: 'backcomponent',
@@ -29,7 +29,7 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 							  flex: 2
 							}
 						],
-						height: '6em'
+						height: '5em'
 					},
 					{
 						xtype:'container',
@@ -43,18 +43,19 @@ Ext.define('nonq_userapp.view.component.FooterTop', {
 								itemId: 'mainButtonId'
 							}
 						],
-						height: '6em',
-						flex:2	
+						height: '5em',
+						flex: 2
 					},
 					{
 						xtype:'container',
 						flex: 1,
-						height: '6em',
+						height: '5em',
 						cls: 'footer2ColorBackground'	
 					}
 				]
 	
-		    },
+		    }
+		    ,
 		    {
 		      xtype: 'container',
 		      height: '1em',

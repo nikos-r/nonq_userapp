@@ -10,7 +10,7 @@ Ext.define('nonq_userapp.view.component.MenuRow',{
 				disabledImageSrc:'resources/icons/bank1_available.png',
 				activeImageSrc:'resources/icons/bank1_available.png',
 				pressedImageSrc:'resources/icons/bank1_selected.png',
-				imageSize:'4em',
+				imageSize:'3em',
 				flex: 1,
 				customerId: 'peiraiws'
 			},
@@ -19,7 +19,7 @@ Ext.define('nonq_userapp.view.component.MenuRow',{
 				disabledImageSrc:'resources/icons/bank2_available.png',
 				activeImageSrc:'resources/icons/bank2_available.png',
 				pressedImageSrc:'resources/icons/bank2_selected.png',
-				imageSize:'4em',
+				imageSize:'3em',
 				disabled: true,
 				flex: 1
 			},
@@ -28,7 +28,7 @@ Ext.define('nonq_userapp.view.component.MenuRow',{
 				disabledImageSrc:'resources/icons/bank2_available.png',
 				activeImageSrc:'resources/icons/bank2_available.png',
 				pressedImageSrc:'resources/icons/bank2_selected.png',
-				imageSize:'4em',
+				imageSize:'3em',
 				disabled: true,
 				flex: 1
 			}

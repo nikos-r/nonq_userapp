@@ -2,9 +2,12 @@ Ext.define('nonq_userapp.controller.HeaderController', {
 	extend: 'Ext.app.Controller',
 	config:{
 		refs:{
+			headerTitle : '#headerTitleItemId',
+			headerSubTitle : '#headerDetailsItemId',
 			storePicker: 'storepickercomponent',
 			menuOption : 'menuoptioncomponent',
-			headerInfoComponent: 'headerinfocomponent'
+//			headerInfoComponent: 'headerinfocomponent',
+			viewWithFooter : 'viewwithfooter'
 		},
 		control:{
 			menuOption : {
@@ -12,33 +15,41 @@ Ext.define('nonq_userapp.controller.HeaderController', {
 			},
 			storePicker:{
 				selectBranch : 'selectBranch'
+			},
+			viewWithFooter : {
+				backButtonTap : 'backButtonTap'
 			}
+			
+			
 		}
 	},
 
 	
+	backButtonTap : function(){
+		if(this.getViewWithFooter().isDrawerOpen()){
+			this.getHeaderTitle().setHtml('where do you want to go?');
+			this.getHeaderSubTitle().setHtml('');
+		}
+		
+	},
+	
 	selectCustomer: function(customerId){
-		console.log(customerId);
-		
-		var headerTitleContainer = this.getHeaderInfoComponent().down("#headerTitleItemId");
-		var headerSubTitleContainer = this.getHeaderInfoComponent().down("#headerDetailsItemId");
-		
-		headerTitleContainer.setHtml('ΠΕΙΡΑΙΩΣ');
-		headerSubTitleContainer.setHtml('First selection');
+		this.getHeaderTitle().setHtml('ΠΕΙΡΑΙΩΣ');
+		this.getHeaderSubTitle().setHtml('First selection');
 	},
 	
 	selectBranch: function(branchId){
 //		console.log(branchId);
 //		var header = this.headerInfoComponent();
 //		var headerTitleContainer = header.down("#headerTitleItemId");
-		var headerSubTitleContainer = this.getHeaderInfoComponent().down("#headerDetailsItemId");
+//		var headerSubTitleContainer = this.getHeaderInfoComponent().down("#headerDetailsItemId");
 		
 //		headerTitleContainer.setHtml('ΠΕΙΡΑΙΩΣ');
 		if(branchId % 2 == 0){
-			headerSubTitleContainer.setHtml('Ζυγού 24<br/> 24680, ΑΘΗΝΑ');
+			this.getHeaderSubTitle().setHtml('Ζυγού 24<br/> 24680, ΑΘΗΝΑ');
 		}
 		else{
-			headerSubTitleContainer.setHtml('Μονού 17<br/> 13579, ΑΘΗΝΑ');
+			this.getHeaderSubTitle().setHtml('Μονού 17<br/> 13579, ΑΘΗΝΑ');
 		}
 	}
 });

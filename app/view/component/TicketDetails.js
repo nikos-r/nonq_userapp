@@ -30,27 +30,32 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 					{
 						xtype:'container',
 						html: '15\'',
+						itemId: 'timeRemainingId',
 						cls:'backgroundOrange fontColorGreen'
+							
 						
 					}
 				]
 			},
 			{
 				xtype:'container',
+//				height: '3em',
 				layout:{
 					type:'hbox',
 					pack:'center'
 				},
 				cls:'backgroundGreen',
-				style:'padding-top:1em; padding-bottom:1em',
+				style:'padding-top:0.5em;padding-bottom:0.5em;',
 				items:[
 					{
 						xtype:'transportoptioncomponent',
 						disabledImageSrc:'resources/icons/TransportMeans_active.png',
 						activeImageSrc:'resources/icons/TransportMeans_available.png',
 						pressedImageSrc:'resources/icons/TransportMeans_active.png',
-						imageSize:'3em',
-						width:'4em',
+						imageSize:'2em',
+						style:'margin-left:0.1em;margin-right:0.1em;',
+//						width:'em',
+//						flex: 1,
 						text: 'bus'
 					},
 					{
@@ -58,8 +63,10 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 						disabledImageSrc:'resources/icons/TransportMeans_active.png',
 						activeImageSrc:'resources/icons/TransportMeans_available.png',
 						pressedImageSrc:'resources/icons/TransportMeans_active.png',
-						imageSize:'3em',
-						width:'4em',
+						imageSize:'2em',
+//						width:'1.4em',
+//						flex: 1,
+						style:'margin-left:0.1em;margin-right:0.1em;',
 						text:'foot'
 					},
 					{
@@ -67,8 +74,10 @@ Ext.define('nonq_userapp.view.component.TicketDetails',{
 						disabledImageSrc:'resources/icons/TransportMeans_active.png',
 						activeImageSrc:'resources/icons/TransportMeans_available.png',
 						pressedImageSrc:'resources/icons/TransportMeans_active.png',
-						imageSize:'3em',
-						width:'4em',
+						imageSize:'2em',
+//						width:'1.4em',
+//						flex: 1,
+						style:'margin-left:0.1em;margin-right:0.1em;',
 						text: 'car'
 					}
 				]

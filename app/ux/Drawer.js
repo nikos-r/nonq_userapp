@@ -246,9 +246,33 @@ Ext.define('nonq_userapp.ux.Drawer', {
       this.refreshInactiveCarouselItems();
   },
   
+  
+  
   changeDrawerItem: function(drawerItem){
 	  this.setItems([drawerItem, this.getBackgroundItem()]);
 	  this.refreshCarouselItems();
+  },
+  
+  
+  refreshDrawerItem: function(newDrawerItem){
+	  if(this.isDrawerOpen()){
+		  this.changeDrawerItem(newDrawerItem);
+		  return;
+	  }
+//	  
+//	  var me = this;
+//	  var oldDrawerOpenedCallback = this.getDrawerOpenedCallback();
+//	  this.drawerOpenedCallback = function(){
+//		  me.changeDrawerItem(newDrawerItem);
+//		  me.drawerOpenedCallback = oldDrawerOpenedCallback;
+//	  }
+//	  this.beforeActionActiveIndex = this.getActiveIndex();
+//	  this.previous();
+  },
+  
+  openDrawer : function(){
+	  this.beforeActionActiveIndex = this.getActiveIndex();
+	  this.previous();
   },
   
   onAnimationEnd: function() {

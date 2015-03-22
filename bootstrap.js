@@ -646,6 +646,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "nonq_userapp.controller.HeaderController": [],
   "nonq_userapp.controller.HiddenMenuController": [],
   "nonq_userapp.controller.LoginController": [],
+  "nonq_userapp.controller.TicketController": [],
   "nonq_userapp.ux.Drawer": [],
   "nonq_userapp.ux.ImageButton": [],
   "nonq_userapp.view.FooterView": [],
@@ -1397,6 +1398,7 @@ Ext.ClassManager.addNameAliasMappings({
   "nonq_userapp.controller.HeaderController": [],
   "nonq_userapp.controller.HiddenMenuController": [],
   "nonq_userapp.controller.LoginController": [],
+  "nonq_userapp.controller.TicketController": [],
   "nonq_userapp.ux.Drawer": [
     "widget.drawer"
   ],

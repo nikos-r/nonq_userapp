@@ -2,6 +2,7 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 	extend: 'Ext.app.Controller',
 	config:{
 		refs:{
+			backButton : '#backButtonId',
 			menuOption : 'menuoptioncomponent',
 			viewWithFooter : 'viewwithfooter'
 		},
@@ -20,6 +21,9 @@ Ext.define('nonq_userapp.controller.CustomerController',{
 		});
 		
 		this.getViewWithFooter().attachMiddlePaneListeners("branchPaneId");
+		
+		this.getViewWithFooter().attachBackButtonListeners("backButtonId");
+		
+		this.getBackButton().setDisabled(false);
 	}
-	
 });

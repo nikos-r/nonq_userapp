@@ -13,7 +13,9 @@ Ext.define('nonq_userapp.view.component.TicketStatus',{
 			{
 				xtype:'container',
 				html:'345',
-				style:'font-size:2em; padding-bottom: 0.2em'		
+				style:'font-size:1.5em; padding-bottom: 0.2em',
+				itemId : 'nextAvailableTicketId'
+					
 			},
 			{
 				xtype:'container',
@@ -22,7 +24,8 @@ Ext.define('nonq_userapp.view.component.TicketStatus',{
 			{
 				xtype:'container',
 				html:'335',
-				style:'font-size:2em; padding-bottom: 0.2em'
+				itemId : 'currentTicketId',
+				style:'font-size:1.5em; padding-bottom: 0.2em'
 			}
 		]
 	}

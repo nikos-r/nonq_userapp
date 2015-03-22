@@ -12,21 +12,29 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 	  drawerOpen: true,
 	  openDrawerLength: 0.6,
 	  itemId: 'viewWithFooter',
+	  drawerClosedCallback: null,
+	  drawerOpenedCallback: null,
 	  backgroundItem:{
 		  xtype:'footerview'
       },
       drawerItem:{
     	  xtype: 'menurowscomponent',
-//    	  xtype:'storepickerwrappercomponent',
     	  itemId: 'customersPaneId'
       }            
     },
 
     initialize : function() {
 		this.callParent(arguments);
-
-		// this.attachMainButtonListeners("mainButtonId")
-		//  	  
+		var me = this;
+		
+		this.drawerClosedCallback = function(){
+			me.onTicketOpen();
+		}
+		
+		this.drawerOpenedCallback = function(){
+			me.onTicketClosed();
+		}
+		
 		this.attachMiddlePaneListeners("customersPaneId");
 		this.on({
 			element : 'element',
@@ -35,6 +43,16 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
 		});
 	},
     
+	attachBackButtonListeners : function(itemId){
+		var backButton = this.down("#"+itemId);
+		
+		backButton.addListener({
+			element : 'element',
+			scope : this,
+			tap : 'onBackButtonTap'
+		});
+	},
+	
     attachMainButtonListeners : function(itemId){
     	var mainButton = this.down("#"+itemId);
     	
@@ -128,7 +146,20 @@ Ext.define('nonq_userapp.view.ViewWithFooter',{
     onMainButtonSwipe:function(){
 		var me = this;
 		me.fireEvent('mainButtonSwipe');
+    },
+
+    onBackButtonTap : function(){
+    	var me = this;
+    	me.fireEvent('backButtonTap')
+    },
+    
+    onTicketOpen : function(){
+    	var me = this;
+    	me.fireEvent('ticketOpen');
+    },
+    
+    onTicketClosed : function(){
+    	var me = this;
+    	me.fireEvent('ticketClosed');
     }
-
-
 });
